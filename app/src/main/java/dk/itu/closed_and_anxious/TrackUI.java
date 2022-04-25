@@ -57,6 +57,7 @@ public class TrackUI extends Fragment {
      * Overrides the onStop() lifecycle method of this fragment.
      * Using the MediaPlayerView stopPlayer method resource are released as well.
      */
+
     @Override
     public void onStop() {
         super.onStop();
