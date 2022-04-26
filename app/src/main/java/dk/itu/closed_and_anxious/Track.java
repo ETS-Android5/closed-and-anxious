@@ -1,15 +1,15 @@
 package dk.itu.closed_and_anxious;
 
 public class Track {
-    private String key;
+    private int key;
     private String dName;
     private String description;
 
     private String category;
 
-    private String imageID;
+    private int imageID;
 
-    public Track(String iKey, String iName, String iDescription, String iCategory, String iImage) {
+    public Track(int iKey, String iName, String iDescription, String iCategory, int iImage) {
         key = iKey;
         dName = iName;
         description = iDescription;
@@ -19,7 +19,7 @@ public class Track {
 
     // ~~~~~~~  Getter Methods  ~~~~~~
 
-    public String getKey() {
+    public int getKey() {
         return key;
     }
 
@@ -31,7 +31,7 @@ public class Track {
         return description;
     }
 
-    public String getImageID() {
+    public int getImageID() {
         return imageID;
     }
 
