@@ -22,7 +22,6 @@ public class UIRWCategories extends Fragment {
     ArrayList<Category> categories;
 
     Category anxious = new Category("Anxiety", "@string/are_you_anxious", "@drawable/anxious");
-    Category
 
     public UIRWCategories() {
         // Required empty public constructor
