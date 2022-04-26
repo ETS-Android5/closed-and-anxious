@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
@@ -13,11 +14,14 @@ public class TrackUI extends Fragment {
     //GUI
     //Should have three buttons (and one image)
     private Button playBtn, pauseBtn, stopBtn;
+    private ImageView trackImg;
 
     //Button backBtn
 
     // mediaplayer to connect to onClick methods
     MediaPlayerView mpv;
+    Track t1;
+    Track t2;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,8 @@ public class TrackUI extends Fragment {
 
 
         mpv = new MediaPlayerView();
+        t1 = new Track(R.raw.hurrystress, "hurryandstress", "Just relaaaaaax", "stress", R.drawable.noise);
+        t2 = new Track(R.raw.breathe, "breath", "Just breaaaaaath", "anxious", R.drawable.anxious);
 
         //backBtn.setOnClick from Track to Playlist
         //Navigation.findNavController(view).navigate(R.id.action_playlistUI_to_trackUI);
@@ -43,7 +49,7 @@ public class TrackUI extends Fragment {
 
         playBtn = v.findViewById(R.id.play_button);
         playBtn.setOnClickListener(view -> {
-                mpv.play(view);
+                mpv.play(view, t2.getKey());
         });
 
         pauseBtn = v.findViewById(R.id.pause_button);
@@ -65,9 +71,9 @@ public class TrackUI extends Fragment {
      */
 
     @Override
-    public void onStop() {
-        super.onStop();
-        mpv.stopPlayer();
+    public void onDestroy() {
+        super.onDestroy();
+        mpv.destroyPlayer();
 
     }
 }
