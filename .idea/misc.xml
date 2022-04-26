@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/johan/OneDrive/Desktop/MMAD_final/closed-and-anxious/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/johan/OneDrive/Desktop/MMAD_final/closed-and-anxious/app/src/main/res/layout/cat_row.xml" value="0.43119266055045874" />
+        <entry key="..\:/Users/johan/OneDrive/Desktop/MMAD_final/closed-and-anxious/app/src/main/res/layout/ui_rw_categories.xml" value="0.2" />
         <entry key="..\:/Users/johan/OneDrive/ITU/MobileAppDev/Projects/closed-and-anxious/app/src/main/res/layout/activity_main.xml" value="0.14375" />
         <entry key="app/src/main/res/drawable/ic_baseline_play_arrow_24.xml" value="0.34479166666666666" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1675925925925926" />
@@ -11,6 +14,7 @@
       </map>
     </option>
   </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
