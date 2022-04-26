@@ -25,10 +25,8 @@ public class MediaPlayerView extends ViewModel {
                 public void onCompletion(MediaPlayer mediaPlayer) {
                     // we call the stopPlayer to release mp resources
                     stopPlayer();
-
                 }
             });
-
         }
 
         // start the player (no matter if just created or already exists)

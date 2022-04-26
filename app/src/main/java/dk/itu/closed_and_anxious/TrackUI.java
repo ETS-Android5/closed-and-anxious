@@ -16,7 +16,6 @@ public class TrackUI extends Fragment {
     // mediaplayer to connect to onClick methods
     MediaPlayerView mpv;
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
