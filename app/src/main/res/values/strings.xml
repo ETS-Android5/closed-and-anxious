@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">closed-and-anxious</string>
+    <string name="app_name">Closed and Anxious</string>
+    <string name="are_you_anxious">Are you Anxious?</string>
+    <string name="anx_descr">Select a meditation from this playlist to help you manage your anxiety.</string>
+    <string name="descr_frustration">Select a meditaion from this playlist to help you manage your frustrations.</string>
+    <string name="descr_noise">Select a meditation from this playlist to create ambient noise for you.</string>
 </resources>
