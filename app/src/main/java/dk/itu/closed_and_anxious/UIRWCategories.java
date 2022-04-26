@@ -78,6 +78,16 @@ public class UIRWCategories extends Fragment {
             description.setText(cat.getDescription());
             img.setImageResource(cat.getImageKey());
         }
+
+        // ~~~~~~~~~~ To-Do: Update onClick once we have the nav_graph implemented ~~~~~~~~~~~
+        public void onClick(View v) {
+            // here goes the function that navigates to the PlayList function
+            // and passes it the name of the category
+            header.getText();
+            // to make the db-Call with the category to get a list
+            // of Tracks in the category
+            // to display via its RecycleView!
+        }
     }
 
     private class CategoryAdapter extends RecyclerView.Adapter<CategoryHolder> {
