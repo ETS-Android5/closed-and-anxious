@@ -48,9 +48,8 @@ public class MediaPlayerView extends ViewModel {
     }
 
     public void stop(View v) {
-        stopPlayer();
         System.out.println("~~~~~~~~~~~~ Starting: Stopping Track");
-
+        stopPlayer();
         System.out.println("~~~~~~~~~~~~ SUCCESS: Stopped Track");
     }
 
