@@ -1,9 +1,11 @@
 package dk.itu.closed_and_anxious;
 
+import android.content.res.Configuration;
 import android.graphics.Canvas;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,7 +40,6 @@ public class UIRWCategories extends Fragment {
 
         // let's instantiate our List for the recycleview
         categories = new ArrayList<Category>();
-        // let's instantiate the RV!
     }
 
     @Override
@@ -52,7 +53,12 @@ public class UIRWCategories extends Fragment {
 
         // let's set up the RecyclerView
         RecyclerView catList = v.findViewById(R.id.cat_recyclerView);
-        catList.setLayoutManager(new LinearLayoutManager(getActivity()));
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            catList.setLayoutManager(new GridLayoutManager(getContext(), 3));
+        } else {
+            catList.setLayoutManager(new LinearLayoutManager(getActivity()));
+        }
+
         CategoryAdapter mAdapter = new CategoryAdapter();
         catList.setAdapter(mAdapter);
 
