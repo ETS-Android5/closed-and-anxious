@@ -8,7 +8,7 @@ public class Category {
     private Playlist playlist;
 
     public Category (String name, String descr, String image) {
-        dName = name;
+        dName = name; // ref?
         description = descr;
         imageKey = image;
         playlist = new Playlist(dName, imageKey);

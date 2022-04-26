@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 
@@ -12,9 +13,12 @@ public class TrackUI extends Fragment {
     //GUI
     //Should have three buttons (and one image)
     private Button playBtn, pauseBtn, stopBtn;
+    private ImageView trackImg;
 
     // mediaplayer to connect to onClick methods
     MediaPlayerView mpv;
+    Track t1;
+    Track t2;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,8 @@ public class TrackUI extends Fragment {
         View v = inflater.inflate(R.layout.track_ui, container, false);
 
         mpv = new MediaPlayerView();
+        t1 = new Track(R.raw.hurrystress, "hurryandstress", "Just relaaaaaax", "stress", R.drawable.noise);
+        t2 = new Track(R.raw.breathe, "breath", "Just breaaaaaath", "anxious", R.drawable.anxious);
 
         /**
          * Implementing methods from the OnClickListener interface.
@@ -36,7 +42,7 @@ public class TrackUI extends Fragment {
 
         playBtn = v.findViewById(R.id.play_button);
         playBtn.setOnClickListener(view -> {
-                mpv.play(view);
+                mpv.play(view, t2.getKey());
         });
 
         pauseBtn = v.findViewById(R.id.pause_button);
@@ -58,9 +64,9 @@ public class TrackUI extends Fragment {
      */
 
     @Override
-    public void onStop() {
-        super.onStop();
-        mpv.stopPlayer();
+    public void onDestroy() {
+        super.onDestroy();
+        mpv.destroyPlayer();
 
     }
 }
