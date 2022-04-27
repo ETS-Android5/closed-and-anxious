@@ -32,7 +32,7 @@ public class TrackUI extends Fragment {
         View v = inflater.inflate(R.layout.track_ui, container, false);
 
         mpv = new MediaPlayerView();
-        t1 = new Track(R.raw.hurrystress, "hurryandstress", "Just relaaaaaax", "stress", R.drawable.noise);
+        t1 = new Track(R.raw.hurrystress, "hurrystress", "Just relaaaaaax", "stress", R.drawable.noise);
         t2 = new Track(R.raw.breathe, "breath", "Just breaaaaaath", "anxious", R.drawable.anxious);
 
         /**

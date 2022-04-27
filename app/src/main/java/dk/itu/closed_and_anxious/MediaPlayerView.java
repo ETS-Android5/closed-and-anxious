@@ -49,7 +49,6 @@ public class MediaPlayerView extends ViewModel {
             player.pause();
             System.out.println("~~~~~~~~~~~~ SUCCESS: Paused Track");
         }
-
     }
 
     public void stop(View v) {
@@ -73,7 +72,7 @@ public class MediaPlayerView extends ViewModel {
             // set the player to null (so a new one can be created)
             player = null;
             // Toast stating that the player has stopped
-            //Toast.makeText(this, "MediaPlayer released", Toast.LENGTH_SHORT).show();
+            // Toast.makeText(this, "MediaPlayer released", Toast.LENGTH_SHORT).show();
         }
     }
 
