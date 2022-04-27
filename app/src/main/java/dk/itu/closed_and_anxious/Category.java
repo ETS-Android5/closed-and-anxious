@@ -3,12 +3,13 @@ package dk.itu.closed_and_anxious;
 public class Category {
     private String dName;
     private String description;
-    private String imageKey;
+    private int imageKey;
 
     private Playlist playlist;
 
     public Category (String name, String descr, String image) {
         dName = name; // ref?
+
         description = descr;
         imageKey = image;
         playlist = new Playlist(dName, imageKey);
@@ -22,7 +23,7 @@ public class Category {
         return description;
     }
 
-    public String getImageKey() {
+    public int getImageKey() {
         return imageKey;
     }
 

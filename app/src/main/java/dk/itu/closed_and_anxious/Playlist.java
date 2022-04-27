@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class Playlist {
     // display name corresponding to a category
     private String name;
-    private String imageKey;
+    private int imageKey;
     private ArrayList<Track> trackList;
 
-    public Playlist (String category, String imageKey){
+    public Playlist (String category, int imageKey){
         name = category;
         this.imageKey = imageKey;
         trackList = new ArrayList<>();
@@ -27,7 +27,7 @@ public class Playlist {
         return name;
     }
 
-    public String getImageKey() {
+    public int getImageKey() {
         return imageKey;
     }
 
