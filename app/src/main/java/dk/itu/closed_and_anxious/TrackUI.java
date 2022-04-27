@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -14,6 +15,7 @@ public class TrackUI extends Fragment {
     //Should have three buttons (and one image)
     private Button playBtn, pauseBtn, stopBtn;
     private ImageView trackImg;
+    private TextView titleText;
 
     // mediaplayer to connect to onClick methods
     MediaPlayerView mpv;
@@ -32,6 +34,8 @@ public class TrackUI extends Fragment {
         View v = inflater.inflate(R.layout.track_ui, container, false);
 
         mpv = new MediaPlayerView();
+
+        // for testing
         t1 = new Track(R.raw.hurrystress, "hurrystress", "Just relaaaaaax", "stress", R.drawable.noise);
         t2 = new Track(R.raw.breathe, "breath", "Just breaaaaaath", "anxious", R.drawable.anxious);
 
@@ -39,6 +43,12 @@ public class TrackUI extends Fragment {
          * Implementing methods from the OnClickListener interface.
          * The view is passed to its related MediaPlayerView method.
          */
+
+        titleText = v.findViewById(R.id.trackTitle);
+        titleText.setText(t2.getdName());
+
+        trackImg =  v.findViewById(R.id.trackImage);
+        trackImg.setImageResource(t2.getImageID());
 
         playBtn = v.findViewById(R.id.play_button);
         playBtn.setOnClickListener(view -> {
