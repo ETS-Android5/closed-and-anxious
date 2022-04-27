@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -40,7 +41,8 @@ import android.widget.TextView;
         }
 
         private class TrackHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-            private final TextView tck_titleTv, imageV,  tck_dscrTv;
+            private final TextView tck_titleTv,  tck_dscrTv;
+            private final ImageView imageV;
 
             public TrackHolder(View trackView) {
                 super(trackView);
@@ -57,6 +59,10 @@ import android.widget.TextView;
                 imageV.setImageResource(track.getImageID());
             }
 
+            @Override
+            public void onClick(View view) {
+
+            }
         }
         private class TrackAdapter extends RecyclerView.Adapter<TrackHolder> {
 
@@ -69,13 +75,13 @@ import android.widget.TextView;
 
             @Override
             public void onBindViewHolder(TrackHolder holder, int position) {
-                Playlist playlist = track_playlist.get(position);
-                holder.bind(playlist, position);
+                Track track = track_playlist.getTrackList().get(position);
+                holder.bind(track, position);
             }
 
             @Override
             public int getItemCount() {
-                return track_playlist.size();
+                return track_playlist.getTrackList().size();
             }
 
         }

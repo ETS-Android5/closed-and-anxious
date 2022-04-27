@@ -31,7 +31,7 @@ public class Track {
         return description;
     }
 
-    public String getImageID() {
+    public int getImageID() {
         return imageID;
     }
 
