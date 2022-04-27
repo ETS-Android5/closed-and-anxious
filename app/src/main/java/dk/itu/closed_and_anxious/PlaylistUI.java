@@ -1,25 +1,23 @@
 package dk.itu.closed_and_anxious;
 
-public class PlaylistUI {
-    package dk.itu.closed_and_anxious;
+
+
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
+
 
 
     public class PlaylistUI extends Fragment {
 
         TextView cat_title;
+        Playlist track_playlist;
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -34,54 +32,53 @@ import android.widget.TextView;
             // Set up recyclerview
             RecyclerView playList = v.findViewById(R.id.rv_playList);
             playList.setLayoutManager(new LinearLayoutManager(getActivity()));
-            ItemAdapter mAdapter = new ItemAdapter();
-            playList.setAdapter(mAdapter);
+            TrackAdapter tAdapter = new TrackAdapter();
+            playList.setAdapter(tAdapter);
 
             //itemsDB.getValue().observe(getActivity(), itemsDB -> mAdapter.notifyDataSetChanged());
-
-
             return v;
         }
 
-        private class ItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-            private final TextView tck_titleTv, imageV,  tck_descrTv;
+        private class TrackHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+            private final TextView tck_titleTv, imageV,  tck_dscrTv;
 
-            public ItemHolder(View itemView) {
-                super(itemView);
-                tck_titleTv= itemView.findViewById(R.id.tck_header);
-                imageV= itemView.findViewById(R.id.img_anx);
-                tck_descrTv= itemView.findViewById(R.id.anx_descr);
-                itemView.setOnClickListener(this);
+            public TrackHolder(View trackView) {
+                super(trackView);
+                tck_titleTv= trackView.findViewById(R.id.tck_header);
+                imageV= trackView.findViewById(R.id.img_anx);
+                tck_dscrTv= trackView.findViewById(R.id.anx_descr);
+                trackView.setOnClickListener(this);
             }
 
             public void bind(Track track, int position){
-                imageV.setText(" "+position+" ");
+
                 tck_titleTv.setText(track.getdName());
-                tck_descrTv.setText(track.getDescription());
+                tck_dscrTv.setText(track.getDescription());
+                imageV.setImageResource(track.getImageID());
             }
 
         }
-        private class ItemAdapter extends RecyclerView.Adapter<ItemHolder> {
+        private class TrackAdapter extends RecyclerView.Adapter<TrackHolder> {
 
             @Override
-            public ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            public TrackHolder onCreateViewHolder(ViewGroup parent, int viewType) {
                 LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
                 View v = layoutInflater.inflate(R.layout.track_row, parent, false);
-                return new ItemHolder(v);
+                return new TrackHolder(v);
             }
 
-            // @Override
-            // public void onBindViewHolder(ItemHolder holder, int position) {
-            //   Item item = itemsDB.getList().get(position);
-            //  holder.bind(item, position);
-            // }
-            //counting how many things are on the list
-            // @Override
-            //  public int getItemCount() {
-            // return itemsDB.size();
-            // }
+            @Override
+            public void onBindViewHolder(TrackHolder holder, int position) {
+                Playlist playlist = track_playlist.get(position);
+                holder.bind(playlist, position);
+            }
+
+            @Override
+            public int getItemCount() {
+                return track_playlist.size();
+            }
 
         }
     }
 
-}
+
