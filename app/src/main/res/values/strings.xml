@@ -4,4 +4,10 @@
     <string name="anx_descr">Select a meditation from this playlist to help you manage your anxiety.</string>
     <string name="descr_frustration">Select a meditaion from this playlist to help you manage your frustrations.</string>
     <string name="descr_noise">Select a meditation from this playlist to create ambient noise for you.</string>
+    <string name="track_title">soundtrack_1</string>
+    <string name="cat_1_title">Anxious</string>
+    <string name="track_descr">Here is the short describtion of the following soundtrack, can include details of the artist, music type, timestamp</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

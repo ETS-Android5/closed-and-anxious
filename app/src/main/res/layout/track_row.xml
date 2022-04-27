@@ -2,29 +2,34 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cornerRadius="5sp"
+    android:padding="8dp"
     android:background="@color/white">
 
     <ImageView
         android:id="@+id/img_anx"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="12dp"
-        android:contentDescription="@string/are_you_anxious"
+        android:layout_marginBottom="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/anxious" />
+        app:srcCompat="@drawable/soundtrack" />
 
     <TextView
-        android:id="@+id/cat_header"
+        android:id="@+id/tck_header"
+        android:text="@string/track_title"
+        android:textSize="14sp"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="12dp"
-        android:text="@string/track_title"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/anx_descr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/img_anx"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,14 +38,16 @@
         android:id="@+id/anx_descr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="4dp"
+        android:layout_marginBottom="12dp"
         android:maxWidth="150dp"
         android:maxHeight="40dp"
-        android:text="@string/descr_noise"
+        android:text="@string/track_descr"
         android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toEndOf="@+id/img_anx"
-        app:layout_constraintTop_toBottomOf="@+id/cat_header" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
