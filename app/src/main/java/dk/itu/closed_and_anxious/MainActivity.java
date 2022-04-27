@@ -21,10 +21,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         FragmentManager fm = getSupportFragmentManager();
-        Fragment trackUI = fm.findFragmentById(R.id.container_ui);
-        trackUI = new TrackUI();
+        //Fragment trackUI = fm.findFragmentById(R.id.container_ui);
+        Fragment categoriesUI = fm.findFragmentById(R.id.container_ui);
+        categoriesUI = new UIRWCategories();
 
-        fm.beginTransaction().add(R.id.container_ui, trackUI).commit();
+        fm.beginTransaction().add(R.id.container_ui, categoriesUI).commit();
     }
 
 }
