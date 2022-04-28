@@ -61,7 +61,7 @@ public class TracksDB extends ViewModel { // ViewModel - instanciated in activit
         addTrack(R.raw.quad, "foldable quadcopter", "A deep, atmospheric electronic track for perspective and meditation. Credit: bibby", "Noise", R.drawable.cover_darksand_4);
         addTrack(R.raw.dark, "Dark Water", "A mystical, layered soundscape to calm and stimulate overworked minds. Credit: Nul Tiel Records", "Noise", R.drawable.cover_roses_2);
         addTrack(R.raw.last, "Last Light", "A simple compounding soundscape to meditate to. Credit: Nul Tiel Records", "Noise", R.drawable.cover_ice_4);
-        addTrack(R.raw.time, "Too Brief A Time To Be Anything", "A 45-minute cosmic meditation soundscape to settle your mind or drift asleep to. Credit: HoliznaCC0", "Noise", R.drawable.cover_tulips_1);
+        addTrack(R.raw.time, "Too Brief A Time To Be Anything", "A 45-minute cosmic meditation soundscape to settle your mind or drift asleep to. Credit: HoliznaCC0", "Noise", R.drawable.cover_ice_3);
         addTrack(R.raw.waves, "Cosmic Waves", "A 33-minute deep meditation soundscape with calming, futuristic sounds. Credit: HoliznaCC0", "Noise", R.drawable.cover_glow_2);
         addTrack(R.raw.amb1, "Ambience", "A well-rounded, focus track for attentive listening-meditations or focused work. Credit: Independent Music Licensing Collective", "Noise", R.drawable.cover_darksand_2);
         addTrack(R.raw.amblo, "Ambience 7", "Classic complex soundscape for mellow focus. Credit: Independent Music Licensing Collective", "Noise", R.drawable.cover_palm_1);
@@ -84,7 +84,7 @@ public class TracksDB extends ViewModel { // ViewModel - instanciated in activit
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             tracks.add(cursor.getTrack());
-            //System.out.println("💥💥💥💥💥💥💥💥💥💥" + tracks.get(0));
+            System.out.println("💥💥💥💥💥💥💥💥💥💥" + tracks.get(0));
             cursor.moveToNext();
         }
         cursor.close();
@@ -125,7 +125,7 @@ public class TracksDB extends ViewModel { // ViewModel - instanciated in activit
         values.put(TrackDBSchema.TrackTable.Columns.TRACKNAME, track.getdName());
         values.put(TrackDBSchema.TrackTable.Columns.TRACKDESC, track.getDescription());
         values.put(TrackDBSchema.TrackTable.Columns.TRACKCAT, track.getCategory());
-        values.put(TrackDBSchema.TrackTable.Columns.TRACKIMG, track.getdName());
+        values.put(TrackDBSchema.TrackTable.Columns.TRACKIMG, track.getImageID());
         return values;
     }
 
