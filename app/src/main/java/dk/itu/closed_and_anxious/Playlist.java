@@ -5,11 +5,13 @@ import java.util.ArrayList;
 public class Playlist {
     // display name corresponding to a category
     private String name;
+    private String description;
     private int imageKey;
     private ArrayList<Track> trackList;
 
-    public Playlist (String category, int imageKey){
+    public Playlist (String category, String descr, int imageKey){
         name = category;
+        description = descr;
         this.imageKey = imageKey;
         trackList = new ArrayList<>();
     }
@@ -37,4 +39,6 @@ public class Playlist {
     }
 
 
+    public String getDescription() { return description;
+    }
 }
