@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainActivity">
+    app:startDestination=""
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="dk.itu.closed_and_anxious.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/UIRWCategories"
+        android:name="dk.itu.closed_and_anxious.UIRWCategories"
+        android:label="ui_rw_categories"
+        tools:layout="@layout/ui_rw_categories" >
+        <action
+            android:id="@+id/action_UIRWCategories_to_playlistUI"
+            app:destination="@id/playlistUI" />
+    </fragment>
+    <fragment
+        android:id="@+id/playlistUI"
+        android:name="dk.itu.closed_and_anxious.PlaylistUI"
+        android:label="playlist_ui"
+        tools:layout="@layout/playlist_ui" >
+        <action
+            android:id="@+id/action_playlistUI_to_trackUI"
+            app:destination="@id/trackUI" />
+    </fragment>
+    <fragment
+        android:id="@+id/trackUI"
+        android:name="dk.itu.closed_and_anxious.TrackUI"
+        android:label="TrackUI" />
+    <action
+        android:id="@+id/action_global_UIRWCategories"
+        app:destination="@id/UIRWCategories"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_enter_anim" />
+</navigation>

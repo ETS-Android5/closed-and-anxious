@@ -5,6 +5,7 @@ package dk.itu.closed_and_anxious;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -61,8 +62,10 @@ import android.widget.TextView;
 
             @Override
             public void onClick(View view) {
-
+                Navigation.findNavController(view).navigate(R.id.action_UIRWCategories_to_playlistUI);
             }
+
+
         }
         private class TrackAdapter extends RecyclerView.Adapter<TrackHolder> {
 
@@ -85,6 +88,8 @@ import android.widget.TextView;
             }
 
         }
+
+
     }
 
 

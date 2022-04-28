@@ -1,9 +1,14 @@
 package dk.itu.closed_and_anxious;
 
+import android.view.View;
+
+import androidx.navigation.Navigation;
+
 public class Category {
     private String dName;
     private String description;
     private int imageKey;
+
 
     private Playlist playlist;
 
@@ -13,6 +18,8 @@ public class Category {
         imageKey = image;
         playlist = new Playlist(dName, imageKey);
     }
+
+
 
     public String getdName() {
         return dName;
@@ -29,4 +36,6 @@ public class Category {
     public Playlist getPlaylist() {
         return playlist;
     }
+
+
 }

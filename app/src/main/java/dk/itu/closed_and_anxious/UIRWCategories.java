@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -87,6 +88,7 @@ public class UIRWCategories extends Fragment {
 
         // ~~~~~~~~~~ To-Do: Update onClick once we have the nav_graph implemented ~~~~~~~~~~~
         public void onClick(View v) {
+            Navigation.findNavController(v).navigate(R.id.action_UIRWCategories_to_playlistUI);
             // here goes the function that navigates to the PlayList function
             // and passes it the name of the category
             header.getText();

@@ -7,11 +7,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 public class TrackUI extends Fragment {
     //GUI
     //Should have three buttons (and one image)
     private Button playBtn, pauseBtn, stopBtn;
+
+    //Button backBtn
 
     // mediaplayer to connect to onClick methods
     MediaPlayerView mpv;
@@ -27,7 +30,11 @@ public class TrackUI extends Fragment {
 
         View v = inflater.inflate(R.layout.track_ui, container, false);
 
+
         mpv = new MediaPlayerView();
+
+        //backBtn.setOnClick from Track to Playlist
+        //Navigation.findNavController(view).navigate(R.id.action_playlistUI_to_trackUI);
 
         /**
          * Implementing methods from the OnClickListener interface.
