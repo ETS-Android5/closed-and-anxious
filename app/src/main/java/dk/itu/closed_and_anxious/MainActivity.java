@@ -20,9 +20,10 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager fm = getSupportFragmentManager();
         //Fragment trackUI = fm.findFragmentById(R.id.container_ui);
-        Fragment categoriesUI = fm.findFragmentById(R.id.container_ui);
-        categoriesUI = new UIRWCategories();
-        fm.beginTransaction().add(R.id.container_ui, categoriesUI).commit();
+        //Fragment categoriesUI = fm.findFragmentById(R.id.container_ui);
+        Fragment playlistUI = fm.findFragmentById(R.id.container_ui);
+        playlistUI = new PlaylistUI();
+        fm.beginTransaction().add(R.id.container_ui, playlistUI).commit();
 
         //Create database
         tDatabase.initialize(this);
