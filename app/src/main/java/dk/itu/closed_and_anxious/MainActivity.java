@@ -1,19 +1,17 @@
 package dk.itu.closed_and_anxious;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import android.content.Context;
-import android.media.MediaPlayer;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.AttributeSet;
-import android.view.View;
-import android.widget.Button;
+
+import dk.itu.closed_and_anxious.database.TrackBaseHelper;
 
 public class MainActivity extends AppCompatActivity {
+    //DB
+    private final static TracksDB tDatabase = new TracksDB();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,13 +19,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         FragmentManager fm = getSupportFragmentManager();
-        Fragment trackUI = fm.findFragmentById(R.id.container_ui);
-        trackUI = new TrackUI();
+        //Fragment trackUI = fm.findFragmentById(R.id.container_ui);
+        Fragment categoriesUI = fm.findFragmentById(R.id.container_ui);
+        categoriesUI = new UIRWCategories();
+        fm.beginTransaction().add(R.id.container_ui, categoriesUI).commit();
 
-        fm.beginTransaction().add(R.id.container_ui, trackUI).commit();
+        //Create database
+        tDatabase.initialize(this);
     }
 
 }
-
-
-
