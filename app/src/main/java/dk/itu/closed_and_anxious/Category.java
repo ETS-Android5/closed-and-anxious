@@ -7,7 +7,7 @@ public class Category {
 
     private Playlist playlist;
 
-    public Category (String name, String descr, String image) {
+    public Category (String name, String descr, int image) {
         dName = name; // ref?
 
         description = descr;
