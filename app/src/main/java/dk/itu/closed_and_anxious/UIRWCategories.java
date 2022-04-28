@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,6 +23,7 @@ public class UIRWCategories extends Fragment {
     // let's make an ArrayList of PlayList for our RecycleView
 
     ArrayList<Playlist> categories;
+    private CatView cat_view = new ViewModelProvider(this).get(CatView.class);
 
     public UIRWCategories() {
         // Required empty public constructor

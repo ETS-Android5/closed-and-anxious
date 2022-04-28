@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 public class TrackUI extends Fragment {
     //GUI
@@ -21,6 +22,9 @@ public class TrackUI extends Fragment {
     MediaPlayerView mpv;
     Track t1;
     Track t2;
+
+    // ViewModel for Category
+    private CatView cat_view = new ViewModelProvider(this).get(CatView.class);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

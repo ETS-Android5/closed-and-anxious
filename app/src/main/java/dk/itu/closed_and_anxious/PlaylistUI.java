@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.media.Image;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,7 +26,9 @@ public class PlaylistUI extends Fragment {
         TextView cat_title;
         Playlist track_playlist;
 
-        @Override
+        private CatView cat_view = new ViewModelProvider(this).get(CatView.class);
+
+    @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
@@ -54,7 +57,6 @@ public class PlaylistUI extends Fragment {
 
             // release the ArrayList
             temp.clear();
-            temp = null;
 
             // Set Playlist Title
             cat_title.setText(track_playlist.getName());
