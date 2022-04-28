@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         //Fragment trackUI = fm.findFragmentById(R.id.container_ui);
         Fragment categoriesUI = fm.findFragmentById(R.id.container_ui);
         categoriesUI = new UIRWCategories();
-
         fm.beginTransaction().add(R.id.container_ui, categoriesUI).commit();
 
         //Create database
@@ -30,6 +29,3 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
-
-
-
