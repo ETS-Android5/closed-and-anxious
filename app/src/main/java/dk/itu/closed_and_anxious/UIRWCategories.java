@@ -1,7 +1,6 @@
 package dk.itu.closed_and_anxious;
 
 import android.content.res.Configuration;
-import android.graphics.Canvas;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;

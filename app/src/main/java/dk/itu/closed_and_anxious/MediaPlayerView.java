@@ -4,7 +4,6 @@ package dk.itu.closed_and_anxious;
 import android.media.MediaPlayer;
 import android.view.View;
 
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class MediaPlayerView extends ViewModel {

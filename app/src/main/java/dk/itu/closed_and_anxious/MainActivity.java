@@ -4,10 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-
-import dk.itu.closed_and_anxious.database.TrackBaseHelper;
 
 public class MainActivity extends AppCompatActivity {
     //DB
