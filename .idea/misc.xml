@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="..\:/Users/johan/OneDrive/Desktop/MMAD_final/closed-and-anxious/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/johan/OneDrive/Desktop/MMAD_final/closed-and-anxious/app/src/main/res/layout-land/cat_row.xml" value="0.1" />
         <entry key="..\:/Users/johan/OneDrive/Desktop/MMAD_final/closed-and-anxious/app/src/main/res/layout-land/ui_rw_categories.xml" value="0.264" />
@@ -12,6 +13,22 @@
         <entry key="..\:/Users/johan/OneDrive/Desktop/MMAD_final/closed-and-anxious/app/src/main/res/layout/track_ui.xml" value="0.17760416666666667" />
         <entry key="..\:/Users/johan/OneDrive/Desktop/MMAD_final/closed-and-anxious/app/src/main/res/layout/ui_rw_categories.xml" value="0.2" />
         <entry key="..\:/Users/johan/OneDrive/ITU/MobileAppDev/Projects/closed-and-anxious/app/src/main/res/layout/activity_main.xml" value="0.14375" />
+=======
+        <entry key="app/src/main/res/drawable/ic_baseline_play_arrow_24.xml" value="0.34479166666666666" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1675925925925926" />
+        <entry key="app/src/main/res/layout/fragment_trackui.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/track_ui.xml" value="0.3106060606060606" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/cat_recycleView.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/cat_row.xml" value="0.44513812533822467" />
+        <entry key="app/src/main/res/layout/layout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/playlist_ui.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/track_row.xml" value="0.5193414224906608" />
+        <entry key="app/src/main/res/layout/track_ui.xml" value="0.2911458333333333" />
+        <entry key="app/src/main/res/layout/ui_rw_categories.xml" value="0.1" />
+        <entry key="app/src/main/res/layout-land/cat_row.xml" value="0.4" />
+        <entry key="app/src/main/res/layout-land/ui_rw_categories.xml" value="0.264" />
+>>>>>>> cd2431aa34387d35f1b38b737256629b1c41455b
       </map>
     </option>
   </component>

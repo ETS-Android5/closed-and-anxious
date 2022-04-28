@@ -6,8 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/trackTitle"
+        android:textSize="24sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/trackImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.56" />
+
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/trackImage"
         android:layout_width="300dp"
         android:layout_height="300dp"
         app:layout_constraintBottom_toTopOf="@+id/play_button"
@@ -15,18 +26,18 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.505" />
+        app:layout_constraintVertical_bias="0.58000004" />
 
     <Button
         android:id="@+id/play_button"
-        app:cornerRadius="60dp"
         android:layout_width="90dp"
         android:layout_height="100dp"
         android:layout_marginBottom="100dp"
-        android:text="&#9658;"
-        android:onClick="play"
-        android:textSize="40sp"
         android:backgroundTint="#A679CA"
+        android:onClick="play"
+        android:text="&#9658;"
+        android:textSize="40sp"
+        app:cornerRadius="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/stop_button"
         app:layout_constraintHorizontal_bias="0.5"
@@ -34,14 +45,14 @@
 
     <Button
         android:id="@+id/stop_button"
-        app:cornerRadius="60dp"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginBottom="100dp"
-        android:text="■"
-        android:onClick="stop"
-        android:textSize="15sp"
         android:backgroundTint="#A679CA"
+        android:onClick="stop"
+        android:text="■"
+        android:textSize="15sp"
+        app:cornerRadius="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -49,15 +60,15 @@
 
     <Button
         android:id="@+id/pause_button"
-        app:cornerRadius="60dp"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_marginBottom="100dp"
-        android:text="&#124; &#124;"
-        android:textStyle="bold"
-        android:onClick="pause"
-        android:textSize="15sp"
         android:backgroundTint="#A679CA"
+        android:onClick="pause"
+        android:text="&#124; &#124;"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:cornerRadius="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/play_button"
         app:layout_constraintHorizontal_bias="0.5"
