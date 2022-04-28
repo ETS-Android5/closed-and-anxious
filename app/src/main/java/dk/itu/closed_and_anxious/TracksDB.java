@@ -50,8 +50,26 @@ public class TracksDB extends ViewModel { // ViewModel - instanciated in activit
      * Invoked in the initialize method, if the database is not already populated.
      */
     public void fillItemsDB() {
-        addTrack(1800000, "Gently Does It", "An atmospheric, uplifting soundscape. Credit: Ketsa", "Noise", 700112);
+        // Anxiety tracks
+        addTrack(R.raw.hurrystress, "Stress Relief", "A gentle mindfulness meditation.", "Anxiety", R.drawable.fire);
+        addTrack(R.raw.google, "Google Privacy Policy", "A calming reading of the first part of the Google Privacy Policy.", "Anxiety", R.drawable.cover_ice_6);
+
+        // Noise tracks
+        addTrack(R.raw.gently, "Gently Does It","An atmospheric, uplifting soundscape. Credit: Ketsa", "Noise", R.drawable.cover_coffee1);
+        addTrack(R.raw.life, "Choose Life", "An atmospheric lofi-tune with true dead-battery vibes. Credit: Daniel Birch", "Noise", R.drawable.cover_ice_1);
+        addTrack(R.raw.adrift15, "Adrift No. 15", "A cosmic string set to invoke wideness, wonder and calm. Credit: Daniel Birch", "Noise", R.drawable.cover_plants_3);
+        addTrack(R.raw.quad, "foldable quadcopter", "A deep, atmospheric electronic track for perspective and meditation. Credit: bibby", "Noise", R.drawable.cover_darksand_4);
+        addTrack(R.raw.dark, "Dark Water", "A mystical, layered soundscape to calm and stimulate overworked minds. Credit: Nul Tiel Records", "Noise", R.drawable.cover_roses_2);
+        addTrack(R.raw.last, "Last Light", "A simple compounding soundscape to meditate to. Credit: Nul Tiel Records", "Noise", R.drawable.cover_ice_4);
+        addTrack(R.raw.time, "Too Brief A Time To Be Anything", "A 45-minute cosmic meditation soundscape to settle your mind or drift asleep to. Credit: HoliznaCC0", "Noise", R.drawable.cover_tulips_1);
+        addTrack(R.raw.waves, "Cosmic Waves", "A 33-minute deep meditation soundscape with calming, futuristic sounds. Credit: HoliznaCC0", "Noise", R.drawable.cover_glow_2);
+        addTrack(R.raw.amb1, "Ambience", "A well-rounded, focus track for attentive listening-meditations or focused work. Credit: Independent Music Licensing Collective", "Noise", R.drawable.cover_darksand_2);
+        addTrack(R.raw.amblo, "Ambience 7", "Classic complex soundscape for mellow focus. Credit: Independent Music Licensing Collective", "Noise", R.drawable.cover_palm_1);
+
+        // Frustration tracks
+
         System.out.println("PRINTED");
+        System.out.println("inserted Noise tracks.");
     }
 
     /**
