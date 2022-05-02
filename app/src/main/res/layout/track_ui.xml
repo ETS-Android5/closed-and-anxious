@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,70 +7,79 @@
 
     <TextView
         android:id="@+id/trackTitle"
-        android:textSize="24sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/trackImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.56" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--- player buttons -->
 
     <ImageView
         android:id="@+id/trackImage"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        app:layout_constraintBottom_toTopOf="@+id/play_button"
+        android:layout_width="325dp"
+        android:layout_height="301dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.58000004" />
+        app:layout_constraintVertical_bias="0.604" />
 
-    <Button
+    <ImageView
         android:id="@+id/play_button"
-        android:layout_width="90dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="100dp"
-        android:backgroundTint="#A679CA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:maxWidth="100dp"
+        android:maxHeight="100dp"
         android:onClick="play"
-        android:text="&#9658;"
-        android:textSize="40sp"
-        app:cornerRadius="60dp"
+        android:src="@drawable/play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/stop_button"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/pause_button" />
+        app:layout_constraintStart_toEndOf="@+id/pause_button"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
-    <Button
+    <ImageView
         android:id="@+id/stop_button"
-        android:layout_width="70dp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="100dp"
-        android:backgroundTint="#A679CA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:maxWidth="80dp"
+        android:maxHeight="70dp"
         android:onClick="stop"
-        android:text="■"
-        android:textSize="15sp"
+        android:src="@drawable/stop"
         app:cornerRadius="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/play_button" />
+        app:layout_constraintStart_toEndOf="@+id/play_button"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
-    <Button
+    <ImageView
         android:id="@+id/pause_button"
-        android:layout_width="70dp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="100dp"
-        android:backgroundTint="#A679CA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:maxWidth="80dp"
+        android:maxHeight="70dp"
         android:onClick="pause"
-        android:text="&#124; &#124;"
-        android:textSize="15sp"
-        android:textStyle="bold"
+        android:src="@drawable/pause"
         app:cornerRadius="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/play_button"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="518dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
