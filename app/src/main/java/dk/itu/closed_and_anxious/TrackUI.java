@@ -41,7 +41,8 @@ public class TrackUI extends Fragment {
 
         /**
          * Implementing methods from the OnClickListener interface.
-         * The view is passed to its related MediaPlayerView method.
+         * Each ImageView representing a player button has been made clickable,
+         * by using the onClick attribute in its layout and assigning each their related method (see corresponding XML).
          */
 
         titleText = v.findViewById(R.id.trackTitle);
@@ -69,8 +70,8 @@ public class TrackUI extends Fragment {
     }
 
     /**
-     * Overrides the onStop() lifecycle method of this fragment.
-     * Using the MediaPlayerView stopPlayer method resource are released as well.
+     * Overrides the onDestroy() lifecycle method of this fragment.
+     * Using the MediaPlayerView destroyPlayer method resource are released as well.
      */
 
     @Override
