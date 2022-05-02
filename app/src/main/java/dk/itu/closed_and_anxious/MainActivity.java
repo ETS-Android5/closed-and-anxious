@@ -27,6 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Create database
         tDatabase.initialize(this);
-    }
+  }
 
 }
