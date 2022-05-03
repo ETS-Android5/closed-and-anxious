@@ -1,8 +1,6 @@
 package dk.itu.closed_and_anxious;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 
@@ -15,18 +13,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FragmentManager fm = getSupportFragmentManager();
+        //FragmentManager fm = getSupportFragmentManager();
 
-      Fragment trackUI = fm.findFragmentById(R.id.container_ui);
+      // Fragment trackUI = fm.findFragmentById(R.id.container_ui);
         //Fragment categoriesUI = fm.findFragmentById(R.id.container_ui);
         //Fragment playlistUI = fm.findFragmentById(R.id.container_ui);
 
         //playlistUI = new PlaylistUI();
-        trackUI = new TrackUI();
+        // trackUI = new TrackUI();
         //categoriesUI = new UIRWCategories();
         // playlistUI = new PlaylistUI();
 
-        fm.beginTransaction().add(R.id.container_ui, trackUI).commit();
+        //fm.beginTransaction().add(R.id.container_ui, trackUI).commit();
         //fm.beginTransaction().add(R.id.container_ui, categoriesUI).commit();
         //fm.beginTransaction().add(R.id.container_ui, playlistuI).commit();
 

@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -66,6 +68,7 @@ public class UIRWCategories extends Fragment {
     private class CategoryHolder extends RecyclerView.ViewHolder {
         private final TextView header, description;
         private final ImageView img;
+        private int currentPosition;
 
         public CategoryHolder(View itemView) {
             super(itemView);
@@ -75,16 +78,23 @@ public class UIRWCategories extends Fragment {
         }
 
         public void bind(Playlist cat, int position) {
+            currentPosition = position;
             header.setText(cat.getName());
             description.setText(cat.getDescription());
             img.setImageResource(cat.getImageKey());
         }
 
         // ~~~~~~~~~~ To-Do: Update onClick once we have the nav_graph implemented ~~~~~~~~~~~
+
         public void onClick(View v) {
             // here goes the function that navigates to the PlayList function
             // and passes it the name of the category
-            header.getText();
+
+            Bundle bundle = new Bundle();
+            bundle.putInt("playlist", currentPosition);
+            Navigation.findNavController(v).navigate(R.id.action_UIRWCategories_to_playlistUI, bundle);
+
+
             // to make the db-Call with the category to get a list
             // of Tracks in the category
             // to display via its RecycleView!
