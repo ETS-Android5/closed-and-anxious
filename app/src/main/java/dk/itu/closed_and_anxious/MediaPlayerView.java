@@ -11,7 +11,6 @@ public class MediaPlayerView extends ViewModel {
     MediaPlayer player;
     boolean stopped = false;
 
-
     // ~~~~~~~~~~~ player controls ~~~~~~~~~~~~
 
     public void play(View v, int trackKey) {
@@ -52,13 +51,15 @@ public class MediaPlayerView extends ViewModel {
     }
 
     public void stop(View v) {
-        System.out.println("~~~~~~~~~~~~ Starting: Stopping Track");
-        //stopPlayer();
-        player.stop();
-        // Prepares the player for playback, asynchronously. Placed here, since preparation produce delay.
-        player.prepareAsync();
-        stopped = true;
-        System.out.println("~~~~~~~~~~~~ SUCCESS: Stopped Track");
+        if (player != null) {
+            System.out.println("~~~~~~~~~~~~ Starting: Stopping Track");
+            //stopPlayer();
+            player.stop();
+            // Prepares the player for playback, asynchronously. Placed here, since preparation produce delay.
+            player.prepareAsync();
+            stopped = true;
+            System.out.println("~~~~~~~~~~~~ SUCCESS: Stopped Track");
+        }
     }
 
     /*
