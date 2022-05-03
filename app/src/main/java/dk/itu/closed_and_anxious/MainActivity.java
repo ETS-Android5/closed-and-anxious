@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        tDatabase.initialize(this);
 
         FragmentManager fm = getSupportFragmentManager();
         //Fragment trackUI = fm.findFragmentById(R.id.container_ui);
@@ -23,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         fm.beginTransaction().add(R.id.container_ui, playlistUI).commit();
 
         //Create database
-        tDatabase.initialize(this);
     }
 
 }

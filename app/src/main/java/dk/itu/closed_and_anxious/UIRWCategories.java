@@ -22,7 +22,7 @@ public class UIRWCategories extends Fragment {
     // let's make an ArrayList of PlayList for our RecycleView
 
     ArrayList<Playlist> categories;
-    private CatView cat_view = new ViewModelProvider(this).get(CatView.class);
+    private CatView cat_view;
 
     public UIRWCategories() {
         // Required empty public constructor
@@ -41,6 +41,8 @@ public class UIRWCategories extends Fragment {
 
         // let's instantiate our List for the recycleview
         categories = new ArrayList<Playlist>();
+        cat_view = new ViewModelProvider(this).get(CatView.class);
+
     }
 
     @Override
