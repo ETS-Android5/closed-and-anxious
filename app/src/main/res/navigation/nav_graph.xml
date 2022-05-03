@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_UIRWCategories_to_playlistUI"
             app:destination="@id/playlistUI" />
+        <action
+            android:id="@+id/action_UIRWCategories_to_mainActivity"
+            app:destination="@id/mainActivity" />
     </fragment>
     <fragment
         android:id="@+id/playlistUI"
@@ -27,11 +30,18 @@
         <action
             android:id="@+id/action_playlistUI_to_trackUI"
             app:destination="@id/trackUI" />
+        <action
+            android:id="@+id/action_playlistUI_to_UIRWCategories"
+            app:destination="@id/UIRWCategories" />
     </fragment>
     <fragment
         android:id="@+id/trackUI"
         android:name="dk.itu.closed_and_anxious.TrackUI"
-        android:label="TrackUI" />
+        android:label="TrackUI" >
+        <action
+            android:id="@+id/action_trackUI_to_playlistUI"
+            app:destination="@id/playlistUI" />
+    </fragment>
     <action
         android:id="@+id/action_global_UIRWCategories"
         app:destination="@id/UIRWCategories"
