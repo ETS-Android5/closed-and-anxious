@@ -1,5 +1,8 @@
 package dk.itu.closed_and_anxious;
 
+import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 public class TrackUI extends Fragment {
     //GUI
@@ -32,7 +36,8 @@ public class TrackUI extends Fragment {
 
         View v = inflater.inflate(R.layout.track_ui, container, false);
 
-        mpv = new MediaPlayerView();
+        //assign MediaPlayer to be shared data (MediaPlayerView)
+        mpv = new ViewModelProvider(requireActivity()).get(MediaPlayerView.class);
 
         // for testing
         t1 = new Track(R.raw.hurrystress, "hurrystress", "Just relaaaaaax", "stress", R.drawable.noise);
@@ -77,5 +82,15 @@ public class TrackUI extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         mpv.destroyPlayer();
+    }
+
+    /**
+     * Gets the information of the activity an sets it orientation to portrait mode.
+     * This makes it possible to keep the trackUI layout and continue its state.
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 }
