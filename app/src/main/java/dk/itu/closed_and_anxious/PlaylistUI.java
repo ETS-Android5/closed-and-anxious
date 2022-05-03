@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,7 +28,7 @@ public class PlaylistUI extends Fragment {
         TextView cat_title;
         Playlist track_playlist;
         private CatView cat_view;
-        private int PLAYLIST_POSITION;
+        private int PLAYLIST_POSITION; // this is where we store and use the argument from the Navigation from
 
     @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -75,6 +76,7 @@ public class PlaylistUI extends Fragment {
         private class TrackHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
             private final TextView tck_titleTv,  tck_dscrTv;
             private final ImageView imageV;
+            private int pos;
 
             public TrackHolder(View trackView) {
                 super(trackView);
@@ -86,13 +88,18 @@ public class PlaylistUI extends Fragment {
 
             public void bind(Track track, int position){
 
+                pos = position;
                 tck_titleTv.setText(track.getdName());
                 tck_dscrTv.setText(track.getDescription());
                 imageV.setImageResource(track.getImageID());
             }
 
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+                PlaylistUIDirections.ActionPlaylistUIToTrackUI action = PlaylistUIDirections.actionPlaylistUIToTrackUI();
+                String trackString = "" + PLAYLIST_POSITION + " " + pos;
+                action.setTrackString(trackString);
+                Navigation.findNavController(v).navigate(action);
 
             }
         }

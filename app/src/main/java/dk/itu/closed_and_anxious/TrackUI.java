@@ -17,7 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import java.lang.reflect.Array;
 
 public class TrackUI extends Fragment {
-    private String test = "1 0"; // number of playlist (category),  number for track in playlist
+    private String test; // number of playlist (category),  number for track in playlist
     //GUI
     //Should have three buttons (and one image)
     private ImageView trackImg, playBtn, pauseBtn, stopBtn;
@@ -33,8 +33,8 @@ public class TrackUI extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         cat_view = new ViewModelProvider(this).get(CatView.class);
+        test = getArguments().getString("trackString");
         track = returnTrackFromInt(test);
 
     }
