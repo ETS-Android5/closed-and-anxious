@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,7 @@ public class PlaylistUI extends Fragment {
         TextView cat_title;
         Playlist track_playlist;
         private CatView cat_view;
+        private int PLAYLIST_POSITION;
 
     @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,8 @@ public class PlaylistUI extends Fragment {
 
             // let's get the viewmodel
             cat_view = new ViewModelProvider(this).get(CatView.class);
+            PLAYLIST_POSITION = getArguments().getInt("playlistInt");
+        Log.i("~~~~~~~~~~~~", "in PlaylistUI: gotten PlaylistInt from CategoriesUI: "+PLAYLIST_POSITION);
 
     }
 
@@ -42,7 +47,7 @@ public class PlaylistUI extends Fragment {
             cat_title= v.findViewById(R.id.cat_header);
             //DB = new ViewModelProvider(requireActivity()).get(ViewModel.class);
 
-            track_playlist = cat_view.getPlaylist(0);
+            track_playlist = cat_view.getPlaylist(PLAYLIST_POSITION);
 
             // Set Playlist Title
             cat_title.setText(track_playlist.getName());

@@ -6,18 +6,16 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 public class UIRWCategories extends Fragment {
 
@@ -68,7 +66,6 @@ public class UIRWCategories extends Fragment {
     private class CategoryHolder extends RecyclerView.ViewHolder {
         private final TextView header, description;
         private final ImageView img;
-        private int currentPosition;
 
         public CategoryHolder(View itemView) {
             super(itemView);
@@ -78,27 +75,11 @@ public class UIRWCategories extends Fragment {
         }
 
         public void bind(Playlist cat, int position) {
-            currentPosition = position;
             header.setText(cat.getName());
             description.setText(cat.getDescription());
             img.setImageResource(cat.getImageKey());
         }
 
-        // ~~~~~~~~~~ To-Do: Update onClick once we have the nav_graph implemented ~~~~~~~~~~~
-
-        public void onClick(View v) {
-            // here goes the function that navigates to the PlayList function
-            // and passes it the name of the category
-
-            Bundle bundle = new Bundle();
-            bundle.putInt("playlist", currentPosition);
-            Navigation.findNavController(v).navigate(R.id.action_UIRWCategories_to_playlistUI, bundle);
-
-
-            // to make the db-Call with the category to get a list
-            // of Tracks in the category
-            // to display via its RecycleView!
-        }
     }
 
     private class CategoryAdapter extends RecyclerView.Adapter<CategoryHolder> {
@@ -114,6 +95,35 @@ public class UIRWCategories extends Fragment {
         public void onBindViewHolder(CategoryHolder holder, int position) {
             Playlist cat = cat_view.getCategories().getValue().get(position);
             holder.bind(cat, position);
+            holder.itemView.setOnClickListener((v -> {
+                Log.i("~~~~~~~~~~~~", "in RecyclerView onClick: Starting Click");
+                // here goes the function that navigates to the PlayList function
+                // and passes it the int position of the category
+
+                // we are using SafeArgs here. SafeArgs creates a Class of "FragmentName + Directions" for each Fragment in the nav_graph
+                // here UIRWCategoresDirections
+
+                // and also a class for each navigation action, named after their nav_graph name, all caps
+                // we are saving an instance of the 'action'-method call as variable 'action',
+                // becaues it is part of the safeArgs navigation with content passing.
+                UIRWCategoriesDirections.ActionUIRWCategoriesToPlaylistUI action = UIRWCategoriesDirections.actionUIRWCategoriesToPlaylistUI();
+
+                Log.i("~~~~~~~~~~~~", "in RecyclerView onClick: Create Action");
+
+                // the library will also auto-generate a 'setArgument(here)'-method.
+                // we use this to pass the action the information we want to pass.
+                action.setPlaylistInt(position);
+
+
+                Log.i("~~~~~~~~~~~~", "in RecyclerView onClick: Set the PlaylistInt");
+                Log.i("~~~~~~~~~~~~", "in RecyclerView onClick: currentPosition is " + position);
+
+                // Then we just pass this action to the navigate()-method
+                // held by the NavControler within the Navigation class
+                Log.i("~~~~~~~~~~~~", "in RecyclerView onClick: Starting navigation...");
+                Navigation.findNavController(v).navigate(action);
+
+            }));
         }
 
         @Override
