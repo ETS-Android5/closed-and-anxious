@@ -16,7 +16,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         FragmentManager fm = getSupportFragmentManager();
-        //Fragment trackUI = fm.findFragmentById(R.id.container_ui);
+
+      //Fragment trackUI = fm.findFragmentById(R.id.container_ui);
         Fragment categoriesUI = fm.findFragmentById(R.id.container_ui);
         //Fragment playlistUI = fm.findFragmentById(R.id.container_ui);
 
@@ -29,8 +30,9 @@ public class MainActivity extends AppCompatActivity {
         fm.beginTransaction().add(R.id.container_ui, categoriesUI).commit();
         //fm.beginTransaction().add(R.id.container_ui, playlistuI).commit();
 
+
         //Create database
         tDatabase.initialize(this);
-    }
+  }
 
 }

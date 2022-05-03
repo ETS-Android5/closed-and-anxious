@@ -14,6 +14,12 @@
         <entry key="..\:/Users/johan/OneDrive/Desktop/MMAD_final/closed-and-anxious/app/src/main/res/layout/track_ui.xml" value="0.17760416666666667" />
         <entry key="..\:/Users/johan/OneDrive/Desktop/MMAD_final/closed-and-anxious/app/src/main/res/layout/ui_rw_categories.xml" value="0.1" />
         <entry key="..\:/Users/johan/OneDrive/ITU/MobileAppDev/Projects/closed-and-anxious/app/src/main/res/layout/activity_main.xml" value="0.14375" />
+        <entry key="app/src/main/res/layout-land/cat_row.xml" value="0.13271604938271606" />
+        <entry key="app/src/main/res/layout-land/playlist_ui.xml" value="0.13271604938271606" />
+        <entry key="app/src/main/res/layout-land/track_ui.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/track_row.xml" value="0.15677083333333333" />
+        <entry key="app/src/main/res/layout/track_ui.xml" value="0.15677083333333333" />
+        <entry key="app/src/main/res/layout/ui_rw_categories.xml" value="0.15677083333333333" />
       </map>
     </option>
   </component>
