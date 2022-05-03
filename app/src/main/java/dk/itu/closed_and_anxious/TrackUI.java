@@ -26,6 +26,10 @@ public class TrackUI extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
     @Override
     public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
@@ -76,7 +80,7 @@ public class TrackUI extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mpv.destroyPlayer();
+        //mpv.destroyPlayer();
 
     }
 }
