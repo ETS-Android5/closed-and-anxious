@@ -14,8 +14,7 @@ import androidx.navigation.Navigation;
 public class TrackUI extends Fragment {
     //GUI
     //Should have three buttons (and one image)
-    private Button playBtn, pauseBtn, stopBtn;
-    private ImageView trackImg;
+    private ImageView trackImg, playBtn, pauseBtn, stopBtn;
     private TextView titleText;
 
     //Button backBtn
