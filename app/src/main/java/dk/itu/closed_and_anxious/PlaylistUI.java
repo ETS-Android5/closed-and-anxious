@@ -4,10 +4,9 @@ package dk.itu.closed_and_anxious;
 
 
 import android.content.res.Configuration;
-import android.media.Image;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,45 +15,34 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+
+import dk.itu.closed_and_anxious.database.TrackDBSchema;
 
 
 public class PlaylistUI extends Fragment {
 
         TextView cat_title;
         Playlist track_playlist;
+        private CatView cat_view;
 
-        @Override
+    @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
-        }
+            // let's get the viewmodel
+            cat_view = new ViewModelProvider(this).get(CatView.class);
+
+    }
+
+
+
         @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             final View v = inflater.inflate(R.layout.playlist_ui, container, false);
             cat_title= v.findViewById(R.id.cat_header);
             //DB = new ViewModelProvider(requireActivity()).get(ViewModel.class);
 
-            // ~~~~~~~~~~~~~~~~~~~~~~ This is for Recycleview Testing! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            track_playlist = new Playlist("Noise",getString(R.string.descr_noise), R.drawable.noise);
-            ArrayList<Track> temp = new ArrayList<>();
-            // public Track(int iKey, String iName, String iDescription, String iCategory, int iImage)
-            temp.add(new Track(R.raw.gently, "Gently Does It","An atmospheric, uplifting soundscape. Credit: Ketsa", "Noise", R.drawable.cover_coffee1));
-            temp.add(new Track(R.raw.life, "Choose Life", "An atmospheric lofi-tune with true dead-battery vibes. Credit: Daniel Birch", "Noise", R.drawable.cover_ice_1));
-            temp.add(new Track(R.raw.adrift15, "Adrift No. 15", "A cosmic string set to invoke wideness, wonder and calm. Credit: Daniel Birch", "Noise", R.drawable.cover_plants_3));
-            temp.add(new Track(R.raw.dark, "Dark Water", "A mystical, layered soundscape to calm and stimulate overworked minds. Credit: Nul Tiel Records", "Noise", R.drawable.cover_roses_2));
-            temp.add(new Track(R.raw.quad, "foldable quadcopter", "A deep, atmospheric electronic track for perspective and meditation. Credit: bibby", "Noise", R.drawable.cover_darksand_4));
-            temp.add(new Track(R.raw.last, "Last Light", "A simple compounding soundscape to meditate to. Credit: Nul Tiel Records", "Noise", R.drawable.cover_ice_4));
-            temp.add(new Track(R.raw.time, "Too Brief A Time To Be Anything", "A 45-minute cosmic meditation soundscape to settle your mind or drift asleep to. Credit: HoliznaCC0", "Noise", R.drawable.cover_ice_3));
-            temp.add(new Track(R.raw.waves, "Cosmic Waves", "A 33-minute deep meditation soundscape with calming, futuristic sounds. Credit: HoliznaCC0", "Noise", R.drawable.cover_glow_2));
-            temp.add(new Track(R.raw.amb1, "Ambience", "A well-rounded, focus track for attentive listening-meditations or focused work. Credit: Independent Music Licensing Collective", "Noise", R.drawable.cover_darksand_2));
-            temp.add(new Track(R.raw.amblo, "Ambience 7", "Classic complex soundscape for mellow focus. Credit: Independent Music Licensing Collective", "Noise", R.drawable.cover_palm_1));
-
-            track_playlist.populateList(temp);
-
-            // release the ArrayList
-            temp.clear();
-            temp = null;
+            track_playlist = cat_view.getPlaylist(0);
 
             // Set Playlist Title
             cat_title.setText(track_playlist.getName());

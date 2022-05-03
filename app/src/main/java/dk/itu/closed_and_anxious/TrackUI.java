@@ -25,6 +25,9 @@ public class TrackUI extends Fragment {
     Track t1;
     Track t2;
 
+    // ViewModel for Category
+    private CatView cat_view = new ViewModelProvider(this).get(CatView.class);
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

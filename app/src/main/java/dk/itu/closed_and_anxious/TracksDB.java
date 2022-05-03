@@ -24,7 +24,7 @@ public class TracksDB extends ViewModel { // ViewModel - instanciated in activit
     public void initialize(Context context){
         if (trackDatab == null) {
             trackDatab = new TrackBaseHelper(context.getApplicationContext()).getWritableDatabase();
-            if (getValues().size() == 0)  {
+            if (getValues(null).size() == 0)  {
                 fillItemsDB();
             }
         }
@@ -78,9 +78,12 @@ public class TracksDB extends ViewModel { // ViewModel - instanciated in activit
      *
      * @return an ArrayList containing all the track objects from the database.
      */
-    public ArrayList<Track> getValues() {
+    public static ArrayList<Track> getValues(String category) {
         ArrayList<Track> tracks = new ArrayList<Track>();
-        TrackCursorWrapper cursor = queryItems(null, null);
+        TrackCursorWrapper cursor;
+        if (category == null) {cursor = queryItems(null, null);}
+        else {
+        cursor = queryItems(TrackDBSchema.TrackTable.Columns.TRACKCAT+"='" + category+"'", null);}
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             tracks.add(cursor.getTrack());

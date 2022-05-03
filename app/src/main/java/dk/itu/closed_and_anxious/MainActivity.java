@@ -4,10 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-
-import dk.itu.closed_and_anxious.database.TrackBaseHelper;
 
 public class MainActivity extends AppCompatActivity {
     //DB
@@ -19,14 +16,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         FragmentManager fm = getSupportFragmentManager();
-        Fragment trackUI = fm.findFragmentById(R.id.container_ui);
-        //Fragment categoriesUI = fm.findFragmentById(R.id.container_ui);
-        //Fragment playlistUI = fm.findFragmentById(R.id.container_ui);
-        //playlistUI = new PlaylistUI();
-        //fm.beginTransaction().add(R.id.container_ui, playlistUI).commit();
 
-        trackUI = new TrackUI();
-        fm.beginTransaction().add(R.id.container_ui, trackUI).commit();
+      //Fragment trackUI = fm.findFragmentById(R.id.container_ui);
+        Fragment categoriesUI = fm.findFragmentById(R.id.container_ui);
+        //Fragment playlistUI = fm.findFragmentById(R.id.container_ui);
+
+        //playlistUI = new PlaylistUI();
+        //trackUI = new TrackUI();
+        categoriesUI = new UIRWCategories();
+        // playlistUI = new PlaylistUI();
+
+        //fm.beginTransaction().add(R.id.container_ui, trackUI).commit();
+        fm.beginTransaction().add(R.id.container_ui, categoriesUI).commit();
+        //fm.beginTransaction().add(R.id.container_ui, playlistuI).commit();
+
 
         //Create database
         tDatabase.initialize(this);

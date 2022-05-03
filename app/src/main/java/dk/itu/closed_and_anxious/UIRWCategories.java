@@ -1,10 +1,10 @@
 package dk.itu.closed_and_anxious;
 
 import android.content.res.Configuration;
-import android.graphics.Canvas;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,8 +20,7 @@ import java.util.ArrayList;
 public class UIRWCategories extends Fragment {
 
     // let's make an ArrayList of PlayList for our RecycleView
-
-    ArrayList<Playlist> categories;
+    private CatView cat_view;
 
     public UIRWCategories() {
         // Required empty public constructor
@@ -38,18 +37,14 @@ public class UIRWCategories extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // let's instantiate our List for the recycleview
-        categories = new ArrayList<Playlist>();
+        cat_view = new ViewModelProvider(this).get(CatView.class);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View v = inflater.inflate(R.layout.ui_rw_categories, container, false);
-
-        categories.add(new Playlist("Anxiety", getString(R.string.anx_descr), R.drawable.anxious));
-        categories.add(new Playlist("Noise", getString(R.string.descr_noise), R.drawable.noise));
-        categories.add(new Playlist("Frustration", getString(R.string.descr_frustration), R.drawable.frustration));
 
         // let's set up the RecyclerView
         RecyclerView catList = v.findViewById(R.id.cat_recyclerView);
@@ -107,13 +102,13 @@ public class UIRWCategories extends Fragment {
 
         @Override
         public void onBindViewHolder(CategoryHolder holder, int position) {
-            Playlist cat = categories.get(position);
+            Playlist cat = cat_view.getCategories().getValue().get(position);
             holder.bind(cat, position);
         }
 
         @Override
         public int getItemCount() {
-            return categories.size();
+            return cat_view.getCategories().getValue().size();
         }
     }
 
