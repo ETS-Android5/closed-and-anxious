@@ -54,4 +54,8 @@ public class CatView extends AndroidViewModel {
         return (categories.getValue().get(position));
     }
 
+    public void populateFromCat(String category) {
+
+    }
+
 }

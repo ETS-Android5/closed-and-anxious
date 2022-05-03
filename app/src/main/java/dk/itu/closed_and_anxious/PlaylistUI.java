@@ -22,14 +22,15 @@ public class PlaylistUI extends Fragment {
 
         TextView cat_title;
         Playlist track_playlist;
-
-        private CatView cat_view = new ViewModelProvider(this).get(CatView.class);
+        private CatView cat_view;
 
     @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+            cat_view = new ViewModelProvider(this).get(CatView.class);
 
-        }
+
+    }
         @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             final View v = inflater.inflate(R.layout.playlist_ui, container, false);
             cat_title= v.findViewById(R.id.cat_header);
