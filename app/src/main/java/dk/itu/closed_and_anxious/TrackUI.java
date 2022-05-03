@@ -14,7 +14,10 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.lang.reflect.Array;
+
 public class TrackUI extends Fragment {
+    private String test = "1 0"; // number of playlist (category),  number for track in playlist
     //GUI
     //Should have three buttons (and one image)
     private ImageView trackImg, playBtn, pauseBtn, stopBtn;
@@ -22,15 +25,18 @@ public class TrackUI extends Fragment {
 
     // mediaplayer to connect to onClick methods
     MediaPlayerView mpv;
-    Track t1;
-    Track t2;
+    Track track;
 
     // ViewModel for Category
-    private CatView cat_view = new ViewModelProvider(this).get(CatView.class);
+    private CatView cat_view;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        cat_view = new ViewModelProvider(this).get(CatView.class);
+        track = returnTrackFromInt(test);
+
     }
 
     @Override
@@ -42,10 +48,6 @@ public class TrackUI extends Fragment {
         //assign MediaPlayer to be shared data (MediaPlayerView)
         mpv = new ViewModelProvider(requireActivity()).get(MediaPlayerView.class);
 
-        // for testing
-        t1 = new Track(R.raw.hurrystress, "hurrystress", "Just relaaaaaax", "stress", R.drawable.noise);
-        t2 = new Track(R.raw.breathe, "breath", "Just breaaaaaath", "anxious", R.drawable.anxious);
-
         /**
          * Implementing methods from the OnClickListener interface.
          * Each ImageView representing a player button has been made clickable,
@@ -53,14 +55,14 @@ public class TrackUI extends Fragment {
          */
 
         titleText = v.findViewById(R.id.trackTitle);
-        titleText.setText(t2.getdName());
+        titleText.setText(track.getdName());
 
         trackImg =  v.findViewById(R.id.trackImage);
-        trackImg.setImageResource(t2.getImageID());
+        trackImg.setImageResource(track.getImageID());
 
         playBtn = v.findViewById(R.id.play_button);
         playBtn.setOnClickListener(view -> {
-                mpv.play(view, t2.getKey());
+                mpv.play(view, track.getKey());
         });
 
         pauseBtn = v.findViewById(R.id.pause_button);
@@ -95,5 +97,16 @@ public class TrackUI extends Fragment {
     public void onResume() {
         super.onResume();
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
+
+    public Track returnTrackFromInt(String trackLocation) {
+        String[] trackArr = trackLocation.split(" ");
+
+        int playlist = Integer.parseInt(trackArr[0]);
+        int track = Integer.parseInt(trackArr[1]);
+
+        Track tempTrack = cat_view.getPlaylist(playlist).getTrackList().get(track);
+
+        return tempTrack;
     }
 }
