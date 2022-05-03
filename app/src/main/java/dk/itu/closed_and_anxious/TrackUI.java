@@ -13,8 +13,7 @@ import androidx.fragment.app.Fragment;
 public class TrackUI extends Fragment {
     //GUI
     //Should have three buttons (and one image)
-    private Button playBtn, pauseBtn, stopBtn;
-    private ImageView trackImg;
+    private ImageView trackImg, playBtn, pauseBtn, stopBtn;
     private TextView titleText;
 
     // mediaplayer to connect to onClick methods
