@@ -17,8 +17,6 @@ public class TrackUI extends Fragment {
     private ImageView trackImg, playBtn, pauseBtn, stopBtn;
     private TextView titleText;
 
-    //Button backBtn
-
     // mediaplayer to connect to onClick methods
     MediaPlayerView mpv;
     Track t1;
@@ -35,15 +33,11 @@ public class TrackUI extends Fragment {
 
         View v = inflater.inflate(R.layout.track_ui, container, false);
 
-
         mpv = new MediaPlayerView();
 
         // for testing
         t1 = new Track(R.raw.hurrystress, "hurrystress", "Just relaaaaaax", "stress", R.drawable.noise);
         t2 = new Track(R.raw.breathe, "breath", "Just breaaaaaath", "anxious", R.drawable.anxious);
-
-        //backBtn.setOnClick from Track to Playlist
-        //Navigation.findNavController(view).navigate(R.id.action_playlistUI_to_trackUI);
 
         /**
          * Implementing methods from the OnClickListener interface.
@@ -59,7 +53,7 @@ public class TrackUI extends Fragment {
 
         playBtn = v.findViewById(R.id.play_button);
         playBtn.setOnClickListener(view -> {
-                mpv.play(view, t2.getKey());
+            mpv.play(view, t2.getKey());
         });
 
         pauseBtn = v.findViewById(R.id.pause_button);
@@ -70,6 +64,9 @@ public class TrackUI extends Fragment {
         stopBtn = v.findViewById(R.id.stop_button);
         stopBtn.setOnClickListener(view -> {
             mpv.stop(view);
+
+            Navigation.findNavController(view).navigate(R.id.action_trackUI_to_playlistUI);
+
         });
 
         return v;

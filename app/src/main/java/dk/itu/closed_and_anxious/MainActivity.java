@@ -18,15 +18,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FragmentManager fm = getSupportFragmentManager();
-        Fragment trackUI = fm.findFragmentById(R.id.container_ui);
+       // FragmentManager fm = getSupportFragmentManager();
+
         //Fragment categoriesUI = fm.findFragmentById(R.id.container_ui);
+        //categoriesUI = new UIRWCategories();
+        //fm.beginTransaction().add(R.id.container_ui, categoriesUI).commit();
+        //Fragment trackUI = fm.findFragmentById(R.id.container_ui);
         //Fragment playlistUI = fm.findFragmentById(R.id.container_ui);
         //playlistUI = new PlaylistUI();
         //fm.beginTransaction().add(R.id.container_ui, playlistUI).commit();
 
-        trackUI = new TrackUI();
-        fm.beginTransaction().add(R.id.container_ui, trackUI).commit();
+       // trackUI = new TrackUI();
+        //fm.beginTransaction().add(R.id.container_ui, trackUI).commit();
 
         //Create database
         tDatabase.initialize(this);

@@ -60,13 +60,18 @@ public class UIRWCategories extends Fragment {
             catList.setLayoutManager(new LinearLayoutManager(getActivity()));
         }
 
+
+
         CategoryAdapter mAdapter = new CategoryAdapter();
         catList.setAdapter(mAdapter);
 
         // Inflate the layout for this fragment
         return v;
 
+
     }
+
+
 
 
     private class CategoryHolder extends RecyclerView.ViewHolder {
@@ -88,14 +93,14 @@ public class UIRWCategories extends Fragment {
 
         // ~~~~~~~~~~ To-Do: Update onClick once we have the nav_graph implemented ~~~~~~~~~~~
         public void onClick(View v) {
-            Navigation.findNavController(v).navigate(R.id.action_UIRWCategories_to_playlistUI);
+          Navigation.findNavController(v).navigate(R.id.action_UIRWCategories_to_playlistUI);
             // here goes the function that navigates to the PlayList function
             // and passes it the name of the category
-            header.getText();
+
             // to make the db-Call with the category to get a list
             // of Tracks in the category
             // to display via its RecycleView!
-        }
+       }
     }
 
     private class CategoryAdapter extends RecyclerView.Adapter<CategoryHolder> {

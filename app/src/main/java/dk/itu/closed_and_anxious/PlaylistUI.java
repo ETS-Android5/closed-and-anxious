@@ -3,9 +3,12 @@ package dk.itu.closed_and_anxious;
 
 
 
+import android.content.res.Configuration;
+import android.media.Image;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -33,6 +36,7 @@ public class PlaylistUI extends Fragment {
             cat_title= v.findViewById(R.id.cat_header);
             //DB = new ViewModelProvider(requireActivity()).get(ViewModel.class);
 
+            // ~~~~~~~~~~~~~~~~~~~~~~ This is for Recycleview Testing! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             track_playlist = new Playlist("Noise",getString(R.string.descr_noise), R.drawable.noise);
             ArrayList<Track> temp = new ArrayList<>();
             // public Track(int iKey, String iName, String iDescription, String iCategory, int iImage)
@@ -52,6 +56,19 @@ public class PlaylistUI extends Fragment {
             // release the ArrayList
             temp.clear();
             temp = null;
+
+            // Set Playlist Title
+            cat_title.setText(track_playlist.getName());
+
+            // ~~~~~~~~~~~~~~~~ Setting up for Landscape view ~~~~~~~~~~~~~~~~~~
+            if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                // set description
+                TextView descr = v.findViewById(R.id.cat_descr);
+                descr.setText(track_playlist.getDescription());
+
+                ImageView img = v.findViewById(R.id.cat_img);
+                img.setImageResource(track_playlist.getImageKey());
+            }
 
             // Set up recyclerview
             RecyclerView playList = v.findViewById(R.id.rv_playList);
@@ -84,10 +101,8 @@ public class PlaylistUI extends Fragment {
 
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_UIRWCategories_to_playlistUI);
+                Navigation.findNavController(view).navigate(R.id.action_playlistUI_to_trackUI);
             }
-
-
         }
         private class TrackAdapter extends RecyclerView.Adapter<TrackHolder> {
 
@@ -110,8 +125,6 @@ public class PlaylistUI extends Fragment {
             }
 
         }
-
-
     }
 
 
