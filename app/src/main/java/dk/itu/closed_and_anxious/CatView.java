@@ -80,7 +80,7 @@ public class CatView extends AndroidViewModel {
         return categories.getValue().get(i).getName();
     }
 
-
-
-
+    public MutableLiveData<ArrayList<Playlist>> getCategories() {
+        return categories;
+    }
 }
