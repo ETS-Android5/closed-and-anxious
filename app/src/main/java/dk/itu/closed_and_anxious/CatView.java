@@ -9,13 +9,17 @@ import androidx.lifecycle.MutableLiveData;
 import java.util.ArrayList;
 
 public class CatView extends AndroidViewModel {
-    public MutableLiveData<ArrayList<Playlist>> categories;
+    private static MutableLiveData<ArrayList<Playlist>> categories;
 
     public CatView(Application a) {
         super(a);
-        categories = new MutableLiveData<>();
-        categories.setValue(new ArrayList<Playlist>(plSetup(a)));
-        Log.i("~~~~~~~~~~~~~~~~~~", "ViewModel setup with size: " + categories.getValue().size());
+        if (categories == null) {
+            categories = new MutableLiveData<>();
+            categories.setValue(new ArrayList<Playlist>(plSetup(a)));
+            Log.i("~~~~~~~~~~~~~~~~~~", "ViewModel setup with size: " + categories.getValue().size());
+        } else {
+            Log.i("~~~~~~~~~~~~~~~~~~", "ViewModel setup: Existed already \uD83D\uDC41 \uD83D\uDC41 \uD83D\uDC41 \uD83D\uDC41");
+        }
     }
 
     /**

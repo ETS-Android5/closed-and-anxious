@@ -3,12 +3,16 @@ package dk.itu.closed_and_anxious;
 
 
 
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,16 +29,15 @@ public class PlaylistUI extends Fragment {
         TextView cat_title;
         Playlist track_playlist;
         private CatView cat_view;
+        private int PLAYLIST_POSITION; // this is where we store and use the argument from the Navigation from
 
     @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-
-            // let's get the viewmodel
-            cat_view = new ViewModelProvider(this).get(CatView.class);
+            PLAYLIST_POSITION = getArguments().getInt("playlistInt");
+        Log.i("~~~~~~~~~~~~", "in PlaylistUI: gotten PlaylistInt from CategoriesUI: "+PLAYLIST_POSITION);
 
     }
-
 
 
         @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,7 +45,11 @@ public class PlaylistUI extends Fragment {
             cat_title= v.findViewById(R.id.cat_header);
             //DB = new ViewModelProvider(requireActivity()).get(ViewModel.class);
 
-            track_playlist = cat_view.getPlaylist(0);
+            // let's get the viewmodel
+            cat_view = new ViewModelProvider(this).get(CatView.class);
+
+
+            track_playlist = cat_view.getPlaylist(PLAYLIST_POSITION);
 
             // Set Playlist Title
             cat_title.setText(track_playlist.getName());
@@ -67,9 +74,18 @@ public class PlaylistUI extends Fragment {
             return v;
         }
 
-        private class TrackHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    // This here forces the layout back into 'unspecified' after it has been set
+    // in the TrackUI to 'only' be Portrait.
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+    }
+
+    private class TrackHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
             private final TextView tck_titleTv,  tck_dscrTv;
             private final ImageView imageV;
+            private int pos;
 
             public TrackHolder(View trackView) {
                 super(trackView);
@@ -81,13 +97,18 @@ public class PlaylistUI extends Fragment {
 
             public void bind(Track track, int position){
 
+                pos = position;
                 tck_titleTv.setText(track.getdName());
                 tck_dscrTv.setText(track.getDescription());
                 imageV.setImageResource(track.getImageID());
             }
 
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+                PlaylistUIDirections.ActionPlaylistUIToTrackUI action = PlaylistUIDirections.actionPlaylistUIToTrackUI();
+                String trackString = "" + PLAYLIST_POSITION + " " + pos;
+                action.setTrackString(trackString);
+                Navigation.findNavController(v).navigate(action);
 
             }
         }
@@ -102,7 +123,9 @@ public class PlaylistUI extends Fragment {
 
             @Override
             public void onBindViewHolder(TrackHolder holder, int position) {
+                Log.i("~XX~~~PlayListUI~~~XX~", "onBindViewHolder: about to grab Track at position " + position);
                 Track track = track_playlist.getTrackList().get(position);
+                Log.i("~XX~~~PlayListUI~~~XX~", "onBindViewHolder: about to bind position " + position);
                 holder.bind(track, position);
             }
 
