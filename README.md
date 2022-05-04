@@ -50,9 +50,10 @@ We have exclusively used the ConstraintLayout for structuring the user interface
 - How we have used it
 
 ### Navigation
-The application consist of one activity and three fragments, which are embodded in the body of main-activity by using FragmentContainerView ui element. This element named container-ui was transformed into NavhostFragment what allow us to set an order of fragments displayed to the user accordingly to the actions he performed. The specification of destinations from one screen to anoter was created in the nav-graph, the resource layer of the application.
+The application consist of one MainActivity three Fragments (UIRWCategories, PlaylistUI and TrackUI), which are embodded in the body of main-activity by using FragmentContainerView element as the NavhostFragment that handles the navigation actions between the Destinations - here synonymous with our Fragments.
 
-There is also part of Navigation which had to be attached into the java part of application. In our main classes which are connected explicitly to UI such as UIRWCategories, TrackUI and PlaylistUI we used the NavigationController object inside Onclick method, that allows NavHost to manage destinations of chosen fragment. NavigationController is a part of the  navigation which contains all information where the fragment or activity which is attached to should go after the specific event occur(that’s why it is attached to onClick method).
+Since we are passing Argeuments between Destinations, we are following Android's best practices use the SafeArgs library to enable safe navigation between the destinations. (See also here: https://developer.android.com/guide/navigation/navigation-pass-data).
 
+Using the Destination and Action classes provided by the utility, we use onClick-methods associated with the different RecyclerView PlaylistHolder and TrackHolder to define the Arguments to be passed and navigate between to the next Fragments. Here, as per documentation, the NavigationController object allows the NavHost to manage the nagivation actions between the Fragments, holding all information about Destinations and Actions contained in the associated nav_graph file.
   <img width="659" alt="Screenshot 2022-05-04 at 16 56 02" src="https://user-images.githubusercontent.com/71443009/166709229-6e72d1c8-8ec0-47ce-ae2e-a95ea484abe7.png">
 
