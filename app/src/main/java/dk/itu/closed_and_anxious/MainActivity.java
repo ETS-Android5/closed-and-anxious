@@ -9,15 +9,12 @@ import android.os.Bundle;
 public class MainActivity extends AppCompatActivity {
     //DB
     private static TracksDB tDatabase;
-    private static CatView cat_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         tDatabase = new TracksDB();
-        cat_view = new CatView(getApplication());
-
         setContentView(R.layout.activity_main);
 
         //Create database

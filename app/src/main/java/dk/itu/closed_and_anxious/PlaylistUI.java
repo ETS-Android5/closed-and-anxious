@@ -34,9 +34,6 @@ public class PlaylistUI extends Fragment {
     @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-
-            // let's get the viewmodel
-            cat_view = new ViewModelProvider(this).get(CatView.class);
             PLAYLIST_POSITION = getArguments().getInt("playlistInt");
         Log.i("~~~~~~~~~~~~", "in PlaylistUI: gotten PlaylistInt from CategoriesUI: "+PLAYLIST_POSITION);
 
@@ -47,6 +44,10 @@ public class PlaylistUI extends Fragment {
             final View v = inflater.inflate(R.layout.playlist_ui, container, false);
             cat_title= v.findViewById(R.id.cat_header);
             //DB = new ViewModelProvider(requireActivity()).get(ViewModel.class);
+
+            // let's get the viewmodel
+            cat_view = new ViewModelProvider(this).get(CatView.class);
+
 
             track_playlist = cat_view.getPlaylist(PLAYLIST_POSITION);
 

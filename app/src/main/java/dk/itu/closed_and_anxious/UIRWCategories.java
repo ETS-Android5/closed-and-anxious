@@ -21,7 +21,7 @@ import android.widget.TextView;
 public class UIRWCategories extends Fragment {
 
     // let's make an ArrayList of PlayList for our RecycleView
-    private CatView cat_view;
+    private static CatView cat_view;
 
     public UIRWCategories() {
         // Required empty public constructor
@@ -38,14 +38,14 @@ public class UIRWCategories extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        cat_view = new ViewModelProvider(this).get(CatView.class);
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View v = inflater.inflate(R.layout.ui_rw_categories, container, false);
+
+        cat_view = new ViewModelProvider(this).get(CatView.class);
 
         // let's set up the RecyclerView
         RecyclerView catList = v.findViewById(R.id.cat_recyclerView);
