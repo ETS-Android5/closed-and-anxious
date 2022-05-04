@@ -58,4 +58,4 @@ Using the Destination and Action classes provided by the utility, we use onClick
 
 <img width="668" alt="Screenshot 2022-05-04 at 17 13 24" src="https://user-images.githubusercontent.com/71443009/166713166-360a3fbb-ddfd-4b88-8a2e-3f4ea7e8d0cd.png">
 
-In the end we just updated the PlaylistUI by deleting the Backbutton which was no longer neede for navigation. 
+In the end we just updated the PlaylistUI by deleting the Backbutton which was no longer needed for navigation. 
