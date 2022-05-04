@@ -21,8 +21,9 @@ public class Playlist {
             System.out.println("~~~~~~~~~~ DEBUG Playlist.populateList() ~~~~~~~~~~~~");
             System.out.println("~~~~~~~~~~ Tried to populate trackList, but was already populated.");
             return;
+        } else {
+            trackList.addAll(list);
         }
-        trackList.addAll(list);
     }
 
     public String getName() {
@@ -34,7 +35,7 @@ public class Playlist {
     }
 
     public ArrayList<Track> getTrackList() {
-        if (trackList.size() > 0) System.out.println("~~~~~~~~~~ DEBUG Playlist.getTrackList -> has size 0.");
+        if (trackList.size() == 0) System.out.println("~~~~~~~~~~ DEBUG Playlist.getTrackList -> has size 0.");
         return trackList;
     }
 

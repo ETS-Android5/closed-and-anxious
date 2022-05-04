@@ -63,6 +63,9 @@ public class UIRWCategories extends Fragment {
 
     }
 
+
+    // This here forces the layout back into 'unspecified' after it has been set
+    // in the TrackUI to 'only' be Portrait.
     @Override
     public void onResume() {
         super.onResume();
@@ -120,7 +123,6 @@ public class UIRWCategories extends Fragment {
                 // the library will also auto-generate a 'setArgument(here)'-method.
                 // we use this to pass the action the information we want to pass.
                 action.setPlaylistInt(position);
-
 
                 Log.i("~~~~~~~~~~~~", "in RecyclerView onClick: Set the PlaylistInt");
                 Log.i("~~~~~~~~~~~~", "in RecyclerView onClick: currentPosition is " + position);

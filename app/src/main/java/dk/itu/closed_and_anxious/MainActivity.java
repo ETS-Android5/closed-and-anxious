@@ -1,17 +1,29 @@
 package dk.itu.closed_and_anxious;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
+import android.app.Application;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
     //DB
-    private final static TracksDB tDatabase = new TracksDB();
+    private static TracksDB tDatabase;
+    private static CatView cat_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        tDatabase = new TracksDB();
+        cat_view = new CatView(getApplication());
+
         setContentView(R.layout.activity_main);
+
+        //Create database
+        tDatabase.initialize(this);
+
+
 
         //FragmentManager fm = getSupportFragmentManager();
 
@@ -29,8 +41,7 @@ public class MainActivity extends AppCompatActivity {
         //fm.beginTransaction().add(R.id.container_ui, playlistuI).commit();
 
 
-        //Create database
-        tDatabase.initialize(this);
-  }
+
+    }
 
 }

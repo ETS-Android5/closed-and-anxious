@@ -9,7 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 import java.util.ArrayList;
 
 public class CatView extends AndroidViewModel {
-    public MutableLiveData<ArrayList<Playlist>> categories;
+    private static MutableLiveData<ArrayList<Playlist>> categories;
 
     public CatView(Application a) {
         super(a);

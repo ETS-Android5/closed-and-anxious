@@ -43,7 +43,6 @@ public class PlaylistUI extends Fragment {
     }
 
 
-
         @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             final View v = inflater.inflate(R.layout.playlist_ui, container, false);
             cat_title= v.findViewById(R.id.cat_header);
@@ -74,6 +73,8 @@ public class PlaylistUI extends Fragment {
             return v;
         }
 
+    // This here forces the layout back into 'unspecified' after it has been set
+    // in the TrackUI to 'only' be Portrait.
     @Override
     public void onResume() {
         super.onResume();
@@ -121,7 +122,9 @@ public class PlaylistUI extends Fragment {
 
             @Override
             public void onBindViewHolder(TrackHolder holder, int position) {
+                Log.i("~XX~~~PlayListUI~~~XX~", "onBindViewHolder: about to grab Track at position " + position);
                 Track track = track_playlist.getTrackList().get(position);
+                Log.i("~XX~~~PlayListUI~~~XX~", "onBindViewHolder: about to bind position " + position);
                 holder.bind(track, position);
             }
 
