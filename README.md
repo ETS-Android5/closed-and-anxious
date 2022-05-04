@@ -47,6 +47,9 @@ We have exclusively used the ConstraintLayout for structuring the user interface
 
 ### SQLite database
 - What it is 
+  
+SQLite is library that implements  a small SQL relational database engine. It is used to perform database operations, which enable the android device to store, retrieve and manipulate persistent data from the database. The classes used to enable this behavior are SQLiteOpenHelper, a helper class used for creating the database, and CursorWrapper, used to wrap and modify the cursor according to the structure of the established database.
+  
 - How we have used it
 
 ### Navigation
