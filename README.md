@@ -16,9 +16,20 @@ We want to provide an application that has the ability to filter, display and pl
 ConstraintLayout is one of the layouts provided by Android, making it possible to structure the user interface of a given activity and/or fragment. The advantage of this ViewGroup object is that it makes the user interface respoinsive.
 
 We have exclusively used the ConstraintLayout for structuring the user interface of each Fragment in our application.
-![](images/CategoryUI.jpg)
-![](images/PlaylistUI.jpg)
-![](images/TrackUI.jpg)
+
+<table align="center">
+  <tr>
+    <td><img src="images/CategoryUI.jpg" alt="category ui" width="200"/></td>
+    <td><img src="images/PlaylistUI.jpg" alt="playlist ui" width="200"/></td>
+    <td><img src="images/TrackUI.jpg" alt="track ui" width="200"/></td>
+  </tr>
+  <tr>
+    <td><p align="center">Category UI</p></td>
+    <td><p align="center">Playlist UI</p></td>
+    <td><p align="center">Track UI</p></td>
+  </tr>
+</table>
+
 
 ### SQLite database
 - What it is 
