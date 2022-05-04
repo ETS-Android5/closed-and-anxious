@@ -56,4 +56,4 @@ Since we are passing Arguments between Destinations, we are following Android's 
 
 Using the Destination and Action classes provided by the utility, we use onClick-methods associated with the different RecyclerView PlaylistHolder and TrackHolder to define the Arguments to be passed and navigate between to the next Fragments. Here, as per documentation, the NavigationController object allows the NavHost to manage the nagivation actions between the Fragments, holding all information about Destinations and Actions contained in the associated nav_graph file.
 
-  <img width="659" alt="Screenshot 2022-05-04 at 16 56 02" src="https://user-images.githubusercontent.com/71443009/166709229-6e72d1c8-8ec0-47ce-ae2e-a95ea484abe7.png">
+<img width="668" alt="Screenshot 2022-05-04 at 17 13 24" src="https://user-images.githubusercontent.com/71443009/166713166-360a3fbb-ddfd-4b88-8a2e-3f4ea7e8d0cd.png">
