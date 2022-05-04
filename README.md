@@ -52,10 +52,8 @@ We have exclusively used the ConstraintLayout for structuring the user interface
 ### Navigation
 The application consist of one MainActivity three Fragments (UIRWCategories, PlaylistUI and TrackUI), which are embodded in the body of main-activity by using FragmentContainerView element as the NavhostFragment that handles the navigation actions between the Destinations - here synonymous with our Fragments.
 
-Since we are passing Argeuments between Destinations, we are following Android's best practices use the SafeArgs library to enable safe navigation between the destinations. (See also here: https://developer.android.com/guide/navigation/navigation-pass-data).
+Since we are passing Arguments between Destinations, we are following Android's best practices use the SafeArgs library to enable safe navigation between the destinations. (See also here: https://developer.android.com/guide/navigation/navigation-pass-data).
 
 Using the Destination and Action classes provided by the utility, we use onClick-methods associated with the different RecyclerView PlaylistHolder and TrackHolder to define the Arguments to be passed and navigate between to the next Fragments. Here, as per documentation, the NavigationController object allows the NavHost to manage the nagivation actions between the Fragments, holding all information about Destinations and Actions contained in the associated nav_graph file.
 
-<img width="668" alt="Screenshot 2022-05-04 at 17 13 24" src="https://user-images.githubusercontent.com/71443009/166713166-360a3fbb-ddfd-4b88-8a2e-3f4ea7e8d0cd.png">
-
-In the end we just updated the PlaylistUI by deleting the Backbutton which was no longer needed for navigation. 
+  <img width="659" alt="Screenshot 2022-05-04 at 16 56 02" src="https://user-images.githubusercontent.com/71443009/166709229-6e72d1c8-8ec0-47ce-ae2e-a95ea484abe7.png">
