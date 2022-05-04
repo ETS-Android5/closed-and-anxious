@@ -26,8 +26,23 @@ One way to 'force' the use could have been as a way of UI-'error'-handling for l
 If one category had a particularly large set of Tracks, and the call to populate the playlist would take several seconds, we could have encapsulated this in its own stream, displayed a loading message in the UI so long as the Playlist was unpopulated, and upon update, programmatically rendered the RecyclerView.
 
 ### ConstraintLayout
-- What it is 
-- How we have used it
+ConstraintLayout is one of the layouts provided by Android, making it possible to structure the user interface of a given activity and/or fragment. The advantage of this ViewGroup object is that it makes the user interface respoinsive.
+
+We have exclusively used the ConstraintLayout for structuring the user interface of each Fragment in our application.
+
+<table align="center">
+  <tr>
+    <td><img src="images/CategoryUI.jpg" alt="category ui" width="200"/></td>
+    <td><img src="images/PlaylistUI.jpg" alt="playlist ui" width="200"/></td>
+    <td><img src="images/TrackUI.jpg" alt="track ui" width="200"/></td>
+  </tr>
+  <tr>
+    <td><p align="center">Category UI</p></td>
+    <td><p align="center">Playlist UI</p></td>
+    <td><p align="center">Track UI</p></td>
+  </tr>
+</table>
+
 
 ### SQLite database
 - What it is 
