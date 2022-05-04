@@ -35,11 +35,11 @@ We have exclusively used the ConstraintLayout for structuring the user interface
 | <img src="images/CategoryUI.jpg" alt="category ui" width="200"/>  |  <img src="images/PlaylistUI.jpg" alt="playlist ui" width="200"/> |  <img src="images/TrackUI.jpg" alt="track ui" width="200"/> |
 
 ### SQLite database
-- What it is 
-  
-SQLite is library that implements  a small SQL relational database engine. It is used to perform database operations, which enable the android device to store, retrieve and manipulate persistent data from the database. The classes used to enable this behavior are SQLiteOpenHelper, a helper class used for creating the database, and CursorWrapper, used to wrap and modify the cursor according to the structure of the established database.
-  
-- How we have used it
+SQLite is a library that implements a small SQL relational database engine. It is used to store data on a users device as a text file in its local storage, and it provides database operations, which enables the android device to store, retrieve and manipulate persistent data from this database. 
+
+To create an use SQLite databse in our application we use three classes TrackHelper, TrackCursorWrapper and TableSchema.
+TrackBaseHelper, is a subclass of SQLiteOpenHelper, which is a helper class used for creating the database. TrackCursorWrapper, which is a subclass of CursorWrapper, is used to wrap and modify the cursor to get the information of a Track object in accordance with the schema of the database, defined in the third and last database realted class TableSchema.
+The very first time the application is used, an instance of the database is created in the MainActivity class onCreate method, which setup the database and populates it with Track objects.
 
 ### Navigation
 The application consist of one MainActivity three Fragments (UIRWCategories, PlaylistUI and TrackUI), which are embodded in the body of main-activity by using FragmentContainerView element as the NavhostFragment that handles the navigation actions between the Destinations - here synonymous with our Fragments.
