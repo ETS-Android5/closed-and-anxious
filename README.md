@@ -29,21 +29,10 @@ If one category had a particularly large set of Tracks, and the call to populate
 ConstraintLayout is one of the layouts provided by Android, making it possible to structure the user interface of a given activity and/or fragment. The advantage of this ViewGroup object is that it makes the user interface responsive.
 
 We have exclusively used the ConstraintLayout for structuring the user interface of each Fragment in our application.
-
-<table align="center">
-  <tr>
-    <td><img src="images/CategoryUI.jpg" alt="category ui" width="200"/></td>
-    <td><img src="images/PlaylistUI.jpg" alt="playlist ui" width="200"/></td>
-    <td><img src="images/TrackUI.jpg" alt="track ui" width="200"/></td>
-  </tr>
-  <tr>
-    <td><p align="center">Category UI</p></td>
-    <td><p align="center">Playlist UI</p></td>
-    <td><p align="center">Track UI</p></td>
-  </tr>
-
-
-
+  
+| <p align="center">Category UI</p>  | <p align="center">Playlist UI</p> | <p align="center">Track UI</p> | 
+| ------------- | ------------- | ------------- |
+| <img src="images/CategoryUI.jpg" alt="category ui" width="200"/>  |  <img src="images/PlaylistUI.jpg" alt="playlist ui" width="200"/> |  <img src="images/TrackUI.jpg" alt="track ui" width="200"/> |
 
 ### SQLite database
 - What it is 
