@@ -48,6 +48,7 @@ We have exclusively used the ConstraintLayout for structuring the user interface
 - What it is 
 - How we have used it
 
-### Naigation
-- What it is 
-- How we have used it
+### Navigation
+The application consist of one activity and three fragments, which are embodded in the body of main-activity by using FragmentContainerView ui element. This element named container-ui was transformed into NavhostFragment what allow us to set an order of fragments displayed to the user accordingly to the actions he performed. The specification of destinations from one screen to anoter was created in the nav-graph, the resource layer of the application.
+
+There is also part of Navigation which had to be attached into the java part of application. In our main classes which are connected explicitly to UI such as UIRWCategories, TrackUI and PlaylistUI we used the NavigationController object inside Onclick method, that allows NavHost to manage destinations of chosen fragment. NavigationController is a part of the  navigation which contains all information where the fragment or activity which is attached to should go after the specific event occur(that’s why it is attached to onClick method).
