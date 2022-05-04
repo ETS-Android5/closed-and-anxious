@@ -1,24 +1,17 @@
 package dk.itu.closed_and_anxious;
 
-import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentKt;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
-
-import java.lang.reflect.Array;
 
 public class TrackUI extends Fragment {
     private String test; // number of playlist (category),  number for track in playlist
@@ -28,7 +21,7 @@ public class TrackUI extends Fragment {
     private TextView titleText;
 
     // mediaplayer to connect to onClick methods
-    MediaPlayerView mpv;
+    Mediaplayer mpv;
     Track track;
 
     // ViewModel for Category
@@ -49,8 +42,8 @@ public class TrackUI extends Fragment {
 
         View v = inflater.inflate(R.layout.track_ui, container, false);
 
-        //assign MediaPlayer to be shared data (MediaPlayerView)
-        mpv = new ViewModelProvider(requireActivity()).get(MediaPlayerView.class);
+        //assign MediaPlayer to be shared data (Mediaplayer)
+        mpv = new Mediaplayer();
 
         /**
          * Implementing methods from the OnClickListener interface.
@@ -84,7 +77,7 @@ public class TrackUI extends Fragment {
 
     /**
      * Overrides the onDestroy() lifecycle method of this fragment.
-     * Using the MediaPlayerView destroyPlayer method resource are released as well.
+     * Using the Mediaplayer destroyPlayer method resource are released as well.
      */
 
     @Override

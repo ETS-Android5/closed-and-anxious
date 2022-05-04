@@ -6,7 +6,7 @@ import android.view.View;
 
 import androidx.lifecycle.ViewModel;
 
-public class MediaPlayerView extends ViewModel {
+public class Mediaplayer {
     MediaPlayer player;
     boolean stopped = false;
 
