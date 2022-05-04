@@ -41,7 +41,7 @@ We have exclusively used the ConstraintLayout for structuring the user interface
     <td><p align="center">Playlist UI</p></td>
     <td><p align="center">Track UI</p></td>
   </tr>
-</table><img width="659" alt="Screenshot 2022-05-04 at 16 56 02" src="https://user-images.githubusercontent.com/71443009/166709082-1b2ec5b4-90a4-483c-b280-396bf4a7da05.png">
+
 
 
 
@@ -54,4 +54,5 @@ The application consist of one activity and three fragments, which are embodded 
 
 There is also part of Navigation which had to be attached into the java part of application. In our main classes which are connected explicitly to UI such as UIRWCategories, TrackUI and PlaylistUI we used the NavigationController object inside Onclick method, that allows NavHost to manage destinations of chosen fragment. NavigationController is a part of the  navigation which contains all information where the fragment or activity which is attached to should go after the specific event occur(that’s why it is attached to onClick method).
 
-  
+  <img width="659" alt="Screenshot 2022-05-04 at 16 56 02" src="https://user-images.githubusercontent.com/71443009/166709229-6e72d1c8-8ec0-47ce-ae2e-a95ea484abe7.png">
+
