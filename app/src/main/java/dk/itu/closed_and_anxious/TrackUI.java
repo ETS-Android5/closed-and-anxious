@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentKt;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
 import java.lang.reflect.Array;
@@ -96,7 +100,17 @@ public class TrackUI extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        // if the class of the current fragment is TrackUI...
+
+        Log.i("~~XX~~XX~~XX~~", "Current Fragment class is: " + FragmentManager.findFragment(getView()).getClass());
+        Log.i("~~XX~~XX~~XX~~", "TrackUI Fragment class is: " + TrackUI.class);
+
+        if (FragmentManager.findFragment(getView()).getClass() == TrackUI.class) {
+            // force Portrait
+            getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        }
     }
 
     public Track returnTrackFromInt(String trackLocation) {

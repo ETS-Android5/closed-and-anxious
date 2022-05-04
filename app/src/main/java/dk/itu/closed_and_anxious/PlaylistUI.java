@@ -3,6 +3,7 @@ package dk.itu.closed_and_anxious;
 
 
 
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -73,7 +74,13 @@ public class PlaylistUI extends Fragment {
             return v;
         }
 
-        private class TrackHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+    }
+
+    private class TrackHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
             private final TextView tck_titleTv,  tck_dscrTv;
             private final ImageView imageV;
             private int pos;

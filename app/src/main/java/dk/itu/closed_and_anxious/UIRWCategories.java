@@ -1,5 +1,6 @@
 package dk.itu.closed_and_anxious;
 
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
@@ -60,6 +61,12 @@ public class UIRWCategories extends Fragment {
         // Inflate the layout for this fragment
         return v;
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
     }
 
 
