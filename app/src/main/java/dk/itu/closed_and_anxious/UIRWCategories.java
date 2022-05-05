@@ -103,10 +103,11 @@ public class UIRWCategories extends Fragment {
 
         @Override
         public void onBindViewHolder(CategoryHolder holder, int position) {
+            boolean DEBUG = false;
             Playlist cat = cat_view.getCategories().getValue().get(position);
             holder.bind(cat, position);
             holder.itemView.setOnClickListener((v -> {
-                Log.i("~~~~~~~~~~~~", "in RecyclerView onClick: Starting Click");
+                if (DEBUG) Log.i("~~~~~~~~~~~~", "in RecyclerView onClick: Starting Click");
                 // here goes the function that navigates to the PlayList function
                 // and passes it the int position of the category
 
@@ -118,18 +119,18 @@ public class UIRWCategories extends Fragment {
                 // becaues it is part of the safeArgs navigation with content passing.
                 UIRWCategoriesDirections.ActionUIRWCategoriesToPlaylistUI action = UIRWCategoriesDirections.actionUIRWCategoriesToPlaylistUI();
 
-                Log.i("~~~~~~~~~~~~", "in RecyclerView onClick: Create Action");
+                if (DEBUG) Log.i("~~~~~~~~~~~~", "in RecyclerView onClick: Create Action");
 
                 // the library will also auto-generate a 'setArgument(here)'-method.
                 // we use this to pass the action the information we want to pass.
                 action.setPlaylistInt(position);
 
-                Log.i("~~~~~~~~~~~~", "in RecyclerView onClick: Set the PlaylistInt");
-                Log.i("~~~~~~~~~~~~", "in RecyclerView onClick: currentPosition is " + position);
+                if (DEBUG) Log.i("~~~~~~~~~~~~", "in RecyclerView onClick: Set the PlaylistInt");
+                if (DEBUG) Log.i("~~~~~~~~~~~~", "in RecyclerView onClick: currentPosition is " + position);
 
                 // Then we just pass this action to the navigate()-method
                 // held by the NavControler within the Navigation class
-                Log.i("~~~~~~~~~~~~", "in RecyclerView onClick: Starting navigation...");
+                if (DEBUG) Log.i("~~~~~~~~~~~~", "in RecyclerView onClick: Starting navigation...");
                 Navigation.findNavController(v).navigate(action);
 
             }));

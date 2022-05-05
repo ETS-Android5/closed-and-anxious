@@ -96,8 +96,9 @@ public class TrackUI extends Fragment {
 
         // if the class of the current fragment is TrackUI...
 
-        Log.i("~~XX~~XX~~XX~~", "Current Fragment class is: " + FragmentManager.findFragment(getView()).getClass());
-        Log.i("~~XX~~XX~~XX~~", "TrackUI Fragment class is: " + TrackUI.class);
+        boolean DEBUG = false;
+        if (DEBUG) Log.i("~~XX~~XX~~XX~~", "Current Fragment class is: " + FragmentManager.findFragment(getView()).getClass());
+        if (DEBUG) Log.i("~~XX~~XX~~XX~~", "TrackUI Fragment class is: " + TrackUI.class);
 
         if (FragmentManager.findFragment(getView()).getClass() == TrackUI.class) {
             // force Portrait

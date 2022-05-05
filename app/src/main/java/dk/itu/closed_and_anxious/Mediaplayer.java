@@ -9,11 +9,12 @@ import androidx.lifecycle.ViewModel;
 public class Mediaplayer {
     MediaPlayer player;
     boolean stopped = false;
+    private final boolean DEBUG = false;
 
     // ~~~~~~~~~~~ player controls ~~~~~~~~~~~~
 
     public void play(View v, int trackKey) {
-        System.out.println("~~~~~~~~~~~~ STARTING: Start playing Track");
+        if (DEBUG) System.out.println("~~~~~~~~~~~~ STARTING: Start playing Track");
         // if player is not created
         if (player == null) {
             // create a player with given track
@@ -34,30 +35,29 @@ public class Mediaplayer {
         }
         // start the player (no matter if just created or already exists)
         player.start();
-        System.out.println("~~~~~~~~~~~~ SUCCESS: Started playing Track");
-
+        if (DEBUG) System.out.println("~~~~~~~~~~~~ SUCCESS: Started playing Track");
 
     }
 
     public void pause(View v) {
-        System.out.println("~~~~~~~~~~~~ STARTING: Pausing Track");
+        if (DEBUG) System.out.println("~~~~~~~~~~~~ STARTING: Pausing Track");
         // if player exists
         if (player != null) {
             // pause the track of the player
             player.pause();
-            System.out.println("~~~~~~~~~~~~ SUCCESS: Paused Track");
+            if (DEBUG) System.out.println("~~~~~~~~~~~~ SUCCESS: Paused Track");
         }
     }
 
     public void stop(View v) {
         if (player != null) {
-            System.out.println("~~~~~~~~~~~~ Starting: Stopping Track");
+            if (DEBUG) System.out.println("~~~~~~~~~~~~ Starting: Stopping Track");
             //stopPlayer();
             player.stop();
             // Prepares the player for playback, asynchronously. Placed here, since preparation produce delay.
             player.prepareAsync();
             stopped = true;
-            System.out.println("~~~~~~~~~~~~ SUCCESS: Stopped Track");
+            if (DEBUG) System.out.println("~~~~~~~~~~~~ SUCCESS: Stopped Track");
         }
     }
 
@@ -79,9 +79,9 @@ public class Mediaplayer {
     // ~~~~~~~~~~~~ player management ~~~~~~~~~~~~~~~
 
     public void setTrack(View v, int trackKey) {
-        System.out.println("~~~~~~~~~~~~ STARTING: Setting Track in player");
+        if (DEBUG) System.out.println("~~~~~~~~~~~~ STARTING: Setting Track in player");
         player = MediaPlayer.create(v.getContext(), trackKey);
-        System.out.println("~~~~~~~~~~~~ SUCCESS: Set Track to " + trackKey);
+        if (DEBUG) System.out.println("~~~~~~~~~~~~ SUCCESS: Set Track to " + trackKey);
         }
 
 }

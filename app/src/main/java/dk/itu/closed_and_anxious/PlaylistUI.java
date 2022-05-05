@@ -26,6 +26,7 @@ import dk.itu.closed_and_anxious.database.TrackDBSchema;
 
 public class PlaylistUI extends Fragment {
 
+    private boolean DEBUG = false;
         TextView cat_title;
         Playlist track_playlist;
         private CatView cat_view;
@@ -35,7 +36,7 @@ public class PlaylistUI extends Fragment {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             PLAYLIST_POSITION = getArguments().getInt("playlistInt");
-        Log.i("~~~~~~~~~~~~", "in PlaylistUI: gotten PlaylistInt from CategoriesUI: "+PLAYLIST_POSITION);
+        if (DEBUG) Log.i("~~~~~~~~~~~~", "in PlaylistUI: gotten PlaylistInt from CategoriesUI: "+PLAYLIST_POSITION);
 
     }
 
@@ -123,9 +124,9 @@ public class PlaylistUI extends Fragment {
 
             @Override
             public void onBindViewHolder(TrackHolder holder, int position) {
-                Log.i("~XX~~~PlayListUI~~~XX~", "onBindViewHolder: about to grab Track at position " + position);
+                if (DEBUG) Log.i("~XX~~~PlayListUI~~~XX~", "onBindViewHolder: about to grab Track at position " + position);
                 Track track = track_playlist.getTrackList().get(position);
-                Log.i("~XX~~~PlayListUI~~~XX~", "onBindViewHolder: about to bind position " + position);
+                if (DEBUG) Log.i("~XX~~~PlayListUI~~~XX~", "onBindViewHolder: about to bind position " + position);
                 holder.bind(track, position);
             }
 

@@ -189,8 +189,9 @@ public class TracksDB extends ViewModel { // ViewModel - instanciated in activit
         addTrack(R.raw.amblo, "Ambience 7", "Classic complex soundscape for mellow focus. Credit: Independent Music Licensing Collective", "Frustration", R.drawable.cover_palm_1);
 
 
-        System.out.println("PRINTED");
-        System.out.println("inserted Noise tracks.");
+        boolean DEBUG = false;
+        if (DEBUG) System.out.println("PRINTED");
+        if (DEBUG) System.out.println("inserted Noise tracks.");
     }
 
     /**
@@ -208,7 +209,7 @@ public class TracksDB extends ViewModel { // ViewModel - instanciated in activit
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             tracks.add(cursor.getTrack());
-            System.out.println("💥💥💥💥💥💥💥💥💥💥" + tracks.get(0));
+            // System.out.println("💥💥💥💥💥💥💥💥💥💥" + tracks.get(0));
             cursor.moveToNext();
         }
         cursor.close();

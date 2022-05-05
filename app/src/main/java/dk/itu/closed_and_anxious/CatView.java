@@ -10,15 +10,16 @@ import java.util.ArrayList;
 
 public class CatView extends AndroidViewModel {
     private static MutableLiveData<ArrayList<Playlist>> categories;
+    private final boolean DEBUG = false;
 
     public CatView(Application a) {
         super(a);
         if (categories == null) {
             categories = new MutableLiveData<>();
             categories.setValue(new ArrayList<Playlist>(plSetup(a)));
-            Log.i("~~~~~~~~~~~~~~~~~~", "ViewModel setup with size: " + categories.getValue().size());
+            if (DEBUG) Log.i("~~~~~~~~~~~~~~~~~~", "ViewModel setup with size: " + categories.getValue().size());
         } else {
-            Log.i("~~~~~~~~~~~~~~~~~~", "ViewModel setup: Existed already \uD83D\uDC41 \uD83D\uDC41 \uD83D\uDC41 \uD83D\uDC41");
+            if (DEBUG) Log.i("~~~~~~~~~~~~~~~~~~", "ViewModel setup: Existed already \uD83D\uDC41 \uD83D\uDC41 \uD83D\uDC41 \uD83D\uDC41");
         }
     }
 
@@ -43,13 +44,15 @@ public class CatView extends AndroidViewModel {
      * @param tracks ArrayList<Track> coming down from the Database
      */
     private void populatePlaylist(int position, ArrayList<Track> tracks){
-        Log.i("~~~~~~~~~~~~", "Populating PlayList for List" + position);
+        if (DEBUG) Log.i("~~~~~~~~~~~~", "Populating PlayList for List" + position);
         ArrayList<Playlist> temp= categories.getValue();
-        if (temp.get(position).getTrackList().size() > 0) {Log.i("~~~~~!!!!~~~~~", "Playlist already populated!"); return;}
-        Log.i("~~~~~~~~~~~~", "Adding Values now...");
+        if (temp.get(position).getTrackList().size() > 0) {
+            if (DEBUG) Log.i("~~~~~!!!!~~~~~", "Playlist already populated!");
+            return;}
+        if (DEBUG) Log.i("~~~~~~~~~~~~", "Adding Values now...");
         temp.get(position).populateList(tracks);
         categories.setValue(temp);
-        Log.i("~~~~~~~~~~~~", "Tracks for Playlist set");
+        if (DEBUG) Log.i("~~~~~~~~~~~~", "Tracks for Playlist set");
     }
 
     /**

@@ -9,6 +9,8 @@ public class Playlist {
     private int imageKey;
     private ArrayList<Track> trackList;
 
+    private final boolean DEBUG = false;
+
     public Playlist (String category, String descr, int imageKey){
         name = category;
         description = descr;
@@ -18,8 +20,8 @@ public class Playlist {
 
     public void populateList(ArrayList<Track> list) {
         if (trackList.size() > 0) {
-            System.out.println("~~~~~~~~~~ DEBUG Playlist.populateList() ~~~~~~~~~~~~");
-            System.out.println("~~~~~~~~~~ Tried to populate trackList, but was already populated.");
+            if (DEBUG) System.out.println("~~~~~~~~~~ DEBUG Playlist.populateList() ~~~~~~~~~~~~");
+            if (DEBUG) System.out.println("~~~~~~~~~~ Tried to populate trackList, but was already populated.");
             return;
         } else {
             trackList.addAll(list);
@@ -35,7 +37,7 @@ public class Playlist {
     }
 
     public ArrayList<Track> getTrackList() {
-        if (trackList.size() == 0) System.out.println("~~~~~~~~~~ DEBUG Playlist.getTrackList -> has size 0.");
+        if (trackList.size() == 0 && DEBUG) System.out.println("~~~~~~~~~~ DEBUG Playlist.getTrackList -> has size 0.");
         return trackList;
     }
 
