@@ -52,6 +52,7 @@ public class TracksDB extends ViewModel { // ViewModel - instanciated in activit
     public void fillItemsDB() {
         // Anxiety tracks
         addTrack(R.raw.hurrystress, "Stress Relief", "A gentle mindfulness meditation.", "Anxiety", R.drawable.fire);
+        addTrack(R.raw.breathe, "Breathe", "Breathe in, breath out.", "Anxiety", R.drawable.cover_palm_1);
         addTrack(R.raw.google, "Google Privacy Policy", "A calming reading of the first part of the Google Privacy Policy.", "Anxiety", R.drawable.cover_ice_6);
 
         // Noise tracks
